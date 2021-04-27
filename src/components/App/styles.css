@@ -1,14 +1,23 @@
 .App {
-  text-align: center;
-  height: 100vh;
+  /* 1f. My List - Task Deleted */
+
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+
+  /* Light Grey */
+
+  background: #f7f7f7;
 }
 
 #header {
+  /* App Header */
   position: absolute;
-  width: 100%;
+  width: 1440px;
   height: 64px;
   left: 0px;
   top: 0px;
+
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -37,20 +46,235 @@ p {
   border: 1px black solid;
 }
 
-.formSection {
-  margin-top: 2.5em;
-  margin-bottom: 0.5em;
-  display: flex;
-  flex-direction: column;
-  border: 1px black solid;
-}
+.active {
+  /* Active */
 
-.col {
+  /* Auto Layout */
+
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+
+  position: absolute;
+  width: 466px;
+  height: 90px;
+  left: 487px;
+  top: 160px;
+
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
 }
 
 .todo {
-  display: inline-block;
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  margin-top: 1em;
+  position: absolute;
+  width: 466px;
+  height: 90px;
+  left: 5%;
+  top: 160px;
+
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+#active-tasks {
+  /* Active Tasks */
+
+  position: absolute;
+  width: 92px;
+  height: 16px;
+  left: 487px;
+  top: 128px;
+
+  /* Body 1 / Bold */
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  /* identical to box height, or 16px */
+
+  letter-spacing: 0.005em;
+
+  /* Text/Black/Active */
+
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.large {
+  /* Secondary/Large */
+
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 32px;
+
+  position: absolute;
+  width: 466px;
+  height: 40px;
+  left: 487px;
+  top: 274px;
+
+  /* Primary/10% */
+
+  background: rgba(65, 88, 196, 0.1);
+  border-radius: 4px;
+  border: none;
+}
+
+#btn-text {
+  /* Button Text */
+
+  position: static;
+  height: 18px;
+  left: 35.09%;
+  right: 35.09%;
+  top: calc(50% - 18px / 2);
+
+  /* Button/Large */
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  /* identical to box height, or 18px */
+
+  text-align: center;
+  letter-spacing: 0.0125em;
+  text-transform: capitalize;
+
+  /* Primary */
+
+  color: #4158c4;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.content {
+  /* Content */
+
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 434px;
+  height: 58px;
+  left: 16px;
+  top: 16px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 10px 0px;
+}
+
+.text-date {
+  /* Text + Date */
+
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 394px;
+  height: 58px;
+  left: 40px;
+  top: 0px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 16px;
+}
+
+.text {
+  /* Text */
+
+  position: static;
+  width: 394px;
+  height: 32px;
+  left: calc(50% - 394px / 2);
+  top: calc(50% - 32px / 2 - 13px);
+
+  /* Body 1/Regular */
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
+  /* or 16px */
+
+  letter-spacing: 0.005em;
+
+  /* Text/Black/Active */
+
+  color: rgba(0, 0, 0, 0.87);
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+.checkbox {
+  /* Checkbox/Unchecked */
+
+  position: static;
+  width: 24px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 16px;
+}
+
+.ellipse {
+  position: absolute;
+  left: 8.33%;
+  right: 8.33%;
+  top: 8.33%;
+  bottom: 8.33%;
+
+  /* Primary */
+
+  border: 2px solid #4158c4;
+  box-sizing: border-box;
 }

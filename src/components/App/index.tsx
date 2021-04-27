@@ -7,28 +7,22 @@ export function App() {
         <p>Todo App</p>
       </div>
 
-      <div className="wrapper">
-        <div className="col">
-          <div>
-            <h3>Todos</h3>
-            <ul>
-              <li>
-                <div className="todo">
-                  <input type="checkbox" />
-                  <label>buy milk</label>
-                  <button>Save</button>
-                  <button>Edit</button>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="formSection">
-            <label htmlFor="newTodo">Add New Todo:</label>
-            <input type="text" name="newTodo" />
-            <button>Save</button>
+      <div className="active">
+        <div className="checkbox">
+          <div className="ellipse"></div>
+        </div>
+        <div className="content">
+          <div className="text-date">
+            <p className="text">Get milk</p>
           </div>
         </div>
       </div>
+
+      <h3 id="active-tasks">Active Tasks</h3>
+
+      <button className="large">
+        <p id="btn-text">Create New Task</p>
+      </button>
     </div>
   )
 }

@@ -62,7 +62,7 @@
     "static": "serve -s build",
     "deps:graph": "depcruise --validate --output-type dot -- src | dot -T svg > dependency-graph.svg",
     "deps:report": "depcruise --validate --output-type err-html --output-to dependency-report.html -- src",
-    "test:ci": "cross-env CI=true run-s test:lint test:deps test:types \"test:unit -- -i\" test:visual:ci test:e2e:ci",
+    "test:ci": "cross-env CI=true run-s test:lint test:deps test:types \"test:unit -- -i\" ",
     "test:deps": "depcruise --validate -- src",
     "test:e2e": "cypress run",
     "test:e2e:ci": "cross-env CYPRESS_baseUrl=http://localhost:5000 start-server-and-test start:ci http://localhost:5000 \"cypress run --port 5052\"",
