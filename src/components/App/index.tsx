@@ -27,7 +27,7 @@ export function App() {
         <div className="active-todos">
           <h3 id="active-tasks">Active Tasks</h3>
           <div className="card">
-            <div className="content">
+            <div className="card-content">
               <div onClick={handleIconClick}>
                 {clicked ? (
                   <CheckCircleIcon className="ellipse" />
@@ -44,7 +44,7 @@ export function App() {
             </div>
           </div>
           <button
-            className="large"
+            className="new-task-btn"
             onClick={() => {
               console.log("clicked")
             }}
