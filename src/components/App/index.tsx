@@ -4,16 +4,19 @@ export function App() {
   return (
     <div className="App">
       <div id="header">
-        <p>Todo App</p>
+        <p id="header-title">Todo App</p>
       </div>
 
       <div className="active">
-        <div className="checkbox">
-          <div className="ellipse"></div>
-        </div>
         <div className="content">
+          <div className="checkbox">
+            <span className="ellipse"></span>
+          </div>
           <div className="text-date">
-            <p className="text">Get milk</p>
+            <p className="text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
+              repudiand
+            </p>
           </div>
         </div>
       </div>

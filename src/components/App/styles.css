@@ -22,7 +22,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-p {
+#header-title {
   position: absolute;
   height: 24px;
   left: 5%;
@@ -268,13 +268,13 @@ p {
 
 .ellipse {
   position: absolute;
-  left: 8.33%;
-  right: 8.33%;
-  top: 8.33%;
-  bottom: 8.33%;
-
-  /* Primary */
-
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
   border: 2px solid #4158c4;
-  box-sizing: border-box;
+}
+
+.checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
 }
