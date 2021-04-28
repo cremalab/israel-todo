@@ -59,8 +59,11 @@
 }
 
 .new-task-btn {
-  text-align: center;
-  padding: 12px 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 0;
+  width: 100%;
   margin: 15px 0px;
   background: rgba(65, 88, 196, 0.1);
   border-radius: 4px;
@@ -73,16 +76,9 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
-  /* identical to box height, or 18px */
   letter-spacing: 0.0125em;
   text-transform: capitalize;
-  /* Primary */
   color: #4158c4;
-  /* Inside Auto Layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 10px;
 }
 
 .card-content {
