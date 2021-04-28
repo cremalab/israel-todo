@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .App {
   /* 1f. My List - Task Deleted */
 
@@ -36,16 +37,6 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.wrapper {
-  position: absolute;
-  left: 5%;
-  top: 15%;
-  right: 5%;
-  display: flex;
-  justify-content: center;
-  border: 1px black solid;
-}
-
 .active {
   /* Active */
 
@@ -60,7 +51,7 @@
   width: 466px;
   height: 90px;
   left: 487px;
-  top: 160px;
+  top: 170px;
 
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -90,9 +81,9 @@
   /* Active Tasks */
 
   position: absolute;
-  width: 92px;
+  width: 923px;
   height: 16px;
-  left: 487px;
+  left: 490px;
   top: 128px;
 
   /* Body 1 / Bold */
@@ -115,16 +106,16 @@
   /* Secondary/Large */
 
   /* Auto Layout */
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 32px;
+  text-align: center;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 8px 155px;
 
   position: absolute;
-  width: 466px;
-  height: 40px;
+  /* width: 466px;
+  height: 40px; */
   left: 487px;
   top: 274px;
 
@@ -138,27 +129,19 @@
 #btn-text {
   /* Button Text */
 
-  position: static;
-  height: 18px;
-  left: 35.09%;
-  right: 35.09%;
-  top: calc(50% - 18px / 2);
-
   /* Button/Large */
 
   font-family: Roboto;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 100%;
   /* identical to box height, or 18px */
 
-  text-align: center;
   letter-spacing: 0.0125em;
   text-transform: capitalize;
 
   /* Primary */
-
   color: #4158c4;
 
   /* Inside Auto Layout */
@@ -220,7 +203,6 @@
 .text {
   /* Text */
 
-  position: static;
   width: 394px;
   height: 32px;
   left: calc(50% - 394px / 2);
@@ -251,8 +233,6 @@
 }
 .checkbox {
   /* Checkbox/Unchecked */
-
-  position: static;
   width: 24px;
   height: 24px;
   left: 0px;
@@ -267,14 +247,5 @@
 }
 
 .ellipse {
-  position: absolute;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border-radius: 50%;
-  border: 2px solid #4158c4;
-}
-
-.checkbox:hover input ~ .checkmark {
-  background-color: #ccc;
+  color: #4158c4;
 }
