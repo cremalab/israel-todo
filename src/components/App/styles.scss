@@ -7,32 +7,32 @@
   background: #f7f7f7;
 }
 
-#header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  /* App Header */
-  position: sticky;
-  height: 64px;
-  z-index: 1000;
-  background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+// #header {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   /* App Header */
+//   position: sticky;
+//   height: 64px;
+//   z-index: 1000;
+//   background: #ffffff;
+//   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+// }
 
-#header-title {
-  height: 24px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 100%;
-  /* identical to box height, or 24px */
-  color: rgba(0, 0, 0, 0.87);
-}
+// #header-title {
+//   height: 24px;
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 24px;
+//   line-height: 100%;
+//   /* identical to box height, or 24px */
+//   color: rgba(0, 0, 0, 0.87);
+// }
 
-.menu-icon {
-  margin: 0 1em;
-}
+// .menu-icon {
+//   margin: 0 1em;
+// }
 
 .card {
   /* Auto Layout */

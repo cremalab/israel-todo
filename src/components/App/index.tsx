@@ -1,8 +1,9 @@
 import "./styles.scss"
 // import CheckCircleIcon from "@material-ui/icons/CheckCircle"
-import MenuIcon from "@material-ui/icons/Menu"
+// import MenuIcon from "@material-ui/icons/Menu"
 // import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked"
 // import { useState } from "react"
+import { Header } from "../Header"
 import { NewTask } from "../NewTask"
 
 export function App() {
@@ -19,10 +20,7 @@ export function App() {
   // }
   return (
     <div className="App">
-      <div id="header">
-        <MenuIcon className="menu-icon" />
-        <p id="header-title">My Tasks</p>
-      </div>
+      <Header />
       {/* 
       <div className="wrapper">
         <div className="active-todos">
