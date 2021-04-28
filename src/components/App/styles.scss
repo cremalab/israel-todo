@@ -1,125 +1,67 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .App {
-  /* 1f. My List - Task Deleted */
-
   position: relative;
-  width: 1440px;
-  height: 1024px;
-
+  height: 100vh;
+  width: 100vw;
   /* Light Grey */
-
   background: #f7f7f7;
 }
 
 #header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   /* App Header */
-  position: absolute;
-  width: 1440px;
+  position: sticky;
   height: 64px;
-  left: 0px;
-  top: 0px;
-
+  z-index: 1000;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #header-title {
-  position: absolute;
   height: 24px;
-  left: 5%;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 100%;
   /* identical to box height, or 24px */
-
   color: rgba(0, 0, 0, 0.87);
 }
 
-.active {
-  /* Active */
-
-  /* Auto Layout */
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 16px;
-
-  position: absolute;
-  width: 466px;
-  height: 90px;
-  left: 487px;
-  top: 170px;
-
-  background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+.menu-icon {
+  margin: 0 1em;
 }
 
-.todo {
+.card {
   /* Auto Layout */
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 16px;
-  margin-top: 1em;
-  position: absolute;
   width: 466px;
-  height: 90px;
-  left: 5%;
-  top: 160px;
-
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 }
 
 #active-tasks {
-  /* Active Tasks */
-
-  position: absolute;
-  width: 923px;
-  height: 16px;
-  left: 490px;
-  top: 128px;
-
-  /* Body 1 / Bold */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 100%;
   /* identical to box height, or 16px */
-
   letter-spacing: 0.005em;
-
   /* Text/Black/Active */
-
   color: rgba(0, 0, 0, 0.87);
 }
 
 .large {
-  /* Secondary/Large */
-
-  /* Auto Layout */
   text-align: center;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* align-items: center; */
   padding: 8px 155px;
-
-  position: absolute;
-  /* width: 466px;
-  height: 40px; */
-  left: 487px;
-  top: 274px;
-
-  /* Primary/10% */
+  margin: 15px 0px;
 
   background: rgba(65, 88, 196, 0.1);
   border-radius: 4px;
@@ -127,25 +69,17 @@
 }
 
 #btn-text {
-  /* Button Text */
-
-  /* Button/Large */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
   /* identical to box height, or 18px */
-
   letter-spacing: 0.0125em;
   text-transform: capitalize;
-
   /* Primary */
   color: #4158c4;
-
   /* Inside Auto Layout */
-
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -153,23 +87,14 @@
 }
 
 .content {
-  /* Content */
-
-  /* Auto Layout */
-
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0px;
-
   position: static;
   width: 434px;
   height: 58px;
   left: 16px;
   top: 16px;
-
-  /* Inside Auto Layout */
-
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -177,75 +102,33 @@
 }
 
 .text-date {
-  /* Text + Date */
-
-  /* Auto Layout */
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
-
-  position: static;
   width: 394px;
   height: 58px;
-  left: 40px;
-  top: 0px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 1;
   flex-grow: 1;
   margin: 0px 16px;
 }
 
 .text {
-  /* Text */
-
-  width: 394px;
-  height: 32px;
-  left: calc(50% - 394px / 2);
-  top: calc(50% - 32px / 2 - 13px);
-
-  /* Body 1/Regular */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 100%;
-  /* or 16px */
-
   letter-spacing: 0.005em;
-
-  /* Text/Black/Active */
-
   color: rgba(0, 0, 0, 0.87);
 
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 8px 0px;
-}
-.checkbox {
-  /* Checkbox/Unchecked */
-  width: 24px;
-  height: 24px;
-  left: 0px;
-  top: 0px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 16px;
+  margin: 0px 0px;
 }
 
 .ellipse {
   color: #4158c4;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
 }
