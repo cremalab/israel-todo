@@ -1,28 +1,29 @@
 import "./styles.scss"
-import CheckCircleIcon from "@material-ui/icons/CheckCircle"
+// import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import MenuIcon from "@material-ui/icons/Menu"
-import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked"
-import { useState } from "react"
-// import { NewTask } from "../NewTask"
+// import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked"
+// import { useState } from "react"
+import { NewTask } from "../NewTask"
 
 export function App() {
-  const [clicked, setClicked] = useState(false)
+  // const [clicked, setClicked] = useState(false)
 
-  const handleIconClick = (): void => {
-    if (!clicked) {
-      setClicked(true)
-    } else {
-      setClicked(false)
-    }
+  // const handleIconClick = (): void => {
+  //   if (!clicked) {
+  //     setClicked(true)
+  //   } else {
+  //     setClicked(false)
+  //   }
 
-    // change <AddCircleIcon /> to <BlockIcon /> at "id"
-  }
+  // change <AddCircleIcon /> to <BlockIcon /> at "id"
+  // }
   return (
     <div className="App">
       <div id="header">
         <MenuIcon className="menu-icon" />
         <p id="header-title">My Tasks</p>
       </div>
+      {/* 
       <div className="wrapper">
         <div className="active-todos">
           <h3 id="active-tasks">Active Tasks</h3>
@@ -52,8 +53,8 @@ export function App() {
             <p id="btn-text">Create New Task</p>
           </button>
         </div>
-      </div>
-      {/* <NewTask /> */}
+      </div> */}
+      <NewTask />
     </div>
   )
 }

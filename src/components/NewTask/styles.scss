@@ -1,227 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .new-task {
-  /* Task */
-
-  /* Auto Layout */
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 24px;
-
-  position: absolute;
-  width: 400px;
-  height: 216px;
-  left: 490px;
-  top: 500px;
-
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
+  width: 50%;
 }
 
 .new-task p {
   height: 16px;
-  left: 0px;
-  right: 282px;
-  top: 0px;
-
-  /* Body 1 / Bold */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 100%;
-  /* identical to box height, or 16px */
-
   letter-spacing: 0.005em;
-
-  /* Text/Black/Active */
-
   color: rgba(0, 0, 0, 0.87);
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 12px 0px;
 }
 
 input {
-  /* Text Input */
-
-  position: static;
-  width: 352px;
+  width: 100%;
   height: 32px;
-  left: calc(50% - 352px / 2);
-  top: 80px;
-
-  /* Body 1/Regular */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 100%;
-  /* identical to box height, or 16px */
-
   letter-spacing: 0.005em;
-
-  /* Text/Black/Inactive */
-
   color: rgba(0, 0, 0, 0.54);
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 2;
-  align-self: stretch;
-  flex-grow: 0;
   margin: 24px 0px;
   border: none;
 }
-.cta {
-  /* CTAs */
-
-  /* Auto Layout */
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-
-  position: static;
-  width: 159px;
+.btn-div {
+  width: 100%;
   height: 32px;
-  right: 0px;
-  bottom: 0px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-  margin: 0px 146px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .secondary-small {
-  /* Secondary/Small/Enabled */
-
-  /* Auto Layout */
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 18px;
-
-  position: static;
-  left: 0%;
-  right: 47.8%;
-  top: 0%;
-  bottom: 0%;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 8px;
-
   border: none;
   background-color: #ffffff;
 }
 
 .primary-small {
-  /* Primary/Small/Enabled */
-
-  /* Auto Layout */
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   padding: 16px 18px;
-
-  position: static;
-  left: 57.23%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  /* Primary */
-
   background: #4158c4;
   border-radius: 4px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  margin: 0px 8px;
   border: none;
 }
 
 #cancel {
-  /* Text */
-
-  //   position: static;
-  //   height: 16px;
-  //   left: 19.28%;
-  //   right: 19.28%;
-  //   top: calc(50% - 16px / 2);
-  text-align: center;
-  /* Button/Regular */
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  /* identical to box height, or 16px */
-
   letter-spacing: 0.0125em;
   text-transform: capitalize;
-
-  /* Primary */
-
   color: #4158c4;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 0px 10px;
+}
+#cancel:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 #save {
-  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 16px;
-  left: 23.53%;
-  right: 23.53%;
-  top: calc(50% - 16px / 2);
-
-  /* Button/Regular */
-
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  /* identical to box height, or 16px */
-
   letter-spacing: 0.0125em;
   text-transform: capitalize;
-
   color: #ffffff;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 0px 10px;
+}
+#save:hover {
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
 }
