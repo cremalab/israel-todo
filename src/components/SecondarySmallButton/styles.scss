@@ -1,0 +1,23 @@
+.secondary-small {
+  border: none;
+  background-color: #ffffff;
+}
+
+.secondary-small-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.0125em;
+  text-transform: capitalize;
+  color: #4158c4;
+  margin: 0px 10px;
+}
+.secondary-small-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
