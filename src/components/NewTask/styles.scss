@@ -4,7 +4,7 @@
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
-  width: 50%;
+  width: 25em;
 }
 
 .new-task p {
@@ -37,56 +37,6 @@ input {
   height: 32px;
   display: flex;
   justify-content: flex-end;
-}
-
-.secondary-small {
-  border: none;
-  background-color: #ffffff;
-}
-
-.primary-small {
-  padding: 16px 18px;
-  background: #4158c4;
-  border-radius: 4px;
-  border: none;
-}
-
-#cancel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0.0125em;
-  text-transform: capitalize;
-  color: #4158c4;
-  margin: 0px 10px;
-}
-#cancel:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#save {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 16px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0.0125em;
-  text-transform: capitalize;
-  color: #ffffff;
-  margin: 0px 10px;
-}
-#save:hover {
-  cursor: pointer;
 }
 
 .wrapper {

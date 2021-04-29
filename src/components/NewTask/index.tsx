@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react"
-
+import { PrimarySmallButton } from "../PrimarySmallButton"
+import { SecondarySmallButton } from "../SecondarySmallButton"
 import "./styles.scss"
 
 export function NewTask() {
@@ -12,19 +13,15 @@ export function NewTask() {
   return (
     <div className="wrapper">
       <div className="new-task">
-        <p>New Task</p>
+        <h5>New Task</h5>
         <input
           type="text"
           placeholder="Task description"
           onChange={handleChangeEvent}
         />
         <div className="btn-div">
-          <button className="secondary-small" id="cancel">
-            Cancel
-          </button>
-          <button className="primary-small" id="save">
-            Save
-          </button>
+          <SecondarySmallButton name="Cancel" />
+          <PrimarySmallButton name="Save" />
         </div>
       </div>
     </div>

@@ -1,11 +1,14 @@
 import MenuIcon from "@material-ui/icons/Menu"
 import "./styles.scss"
+import { Sticky } from "../Sticky"
 
 export function Header() {
   return (
-    <div id="header">
-      <MenuIcon className="menu-icon" />
-      <p id="header-title">My Tasks</p>
-    </div>
+    <Sticky>
+      <div id="header">
+        <MenuIcon className="menu-icon" />
+        <h4 id="header-title">My Tasks</h4>
+      </div>
+    </Sticky>
   )
 }
