@@ -12,7 +12,7 @@ export function TodoContainer() {
 
   return (
     <div className="wrapper">
-      <div className="active-todos">
+      <div>
         <h3 id="active-tasks">Active Tasks</h3>
         <TodoCard />
         <button className="new-task-btn" onClick={openModal}>

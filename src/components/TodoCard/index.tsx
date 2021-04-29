@@ -25,7 +25,7 @@ export function TodoCard() {
             <RadioButtonUncheckedIcon className="ellipse" />
           )}
         </div>
-        <div className="text-date">
+        <div className="text-date-section">
           <p className="text">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
             repudiand
