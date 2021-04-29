@@ -1,14 +1,12 @@
 import "./styles.scss"
 import { Header } from "../Header"
-import { NewTask } from "../NewTask"
-import { TodoCard } from "../TodoCard"
+import { TodoContainer } from "../TodoContainer"
 
 export function App() {
   return (
     <div className="App">
       <Header />
-      <TodoCard />
-      <NewTask />
+      <TodoContainer />
     </div>
   )
 }

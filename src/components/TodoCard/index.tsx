@@ -16,34 +16,21 @@ export function TodoCard() {
     // change <AddCircleIcon /> to <BlockIcon /> at "id"
   }
   return (
-    <div className="wrapper">
-      <div className="active-todos">
-        <h3 id="active-tasks">Active Tasks</h3>
-        <div className="card">
-          <div className="card-content">
-            <div onClick={handleIconClick}>
-              {clicked ? (
-                <CheckCircleIcon className="ellipse" />
-              ) : (
-                <RadioButtonUncheckedIcon className="ellipse" />
-              )}
-            </div>
-            <div className="text-date">
-              <p className="text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Pariatur repudiand
-              </p>
-            </div>
-          </div>
+    <div className="card">
+      <div className="card-content">
+        <div onClick={handleIconClick}>
+          {clicked ? (
+            <CheckCircleIcon className="ellipse" />
+          ) : (
+            <RadioButtonUncheckedIcon className="ellipse" />
+          )}
         </div>
-        <button
-          className="new-task-btn"
-          onClick={() => {
-            console.log("clicked")
-          }}
-        >
-          <p id="btn-text">Create New Task</p>
-        </button>
+        <div className="text-date">
+          <p className="text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
+            repudiand
+          </p>
+        </div>
       </div>
     </div>
   )
