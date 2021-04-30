@@ -40,3 +40,14 @@
   align-items: center;
   min-height: 50vh;
 }
+
+.todos {
+  min-width: 50%;
+  margin-top: 5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .todos {
+    max-width: 80%;
+  }
+}

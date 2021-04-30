@@ -5,6 +5,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   width: 25em;
+  margin: auto;
 }
 
 .new-task p {
@@ -44,4 +45,22 @@ input {
   justify-content: center;
   align-items: center;
   min-height: 50vh;
+}
+@media only screen and (max-width: 700px) {
+  .new-task {
+    max-width: 80%;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  display: flex;
 }

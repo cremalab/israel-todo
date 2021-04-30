@@ -3,7 +3,11 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked"
 import { useState } from "react"
 
-export function TodoCard() {
+interface Props {
+  todo: string
+}
+
+export function TodoCard(props: Props) {
   const [clicked, setClicked] = useState(false)
 
   const handleIconClick = (): void => {
@@ -18,7 +22,7 @@ export function TodoCard() {
   return (
     <div className="card">
       <div className="card-content">
-        <div onClick={handleIconClick}>
+        <div className="ellipse-div" onClick={handleIconClick}>
           {clicked ? (
             <CheckCircleIcon className="ellipse" />
           ) : (
@@ -26,10 +30,7 @@ export function TodoCard() {
           )}
         </div>
         <div className="text-date-section">
-          <p className="text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-            repudiand
-          </p>
+          <p className="text">{props.todo}</p>
         </div>
       </div>
     </div>
