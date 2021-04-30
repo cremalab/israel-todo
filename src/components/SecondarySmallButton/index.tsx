@@ -1,6 +1,6 @@
 import "./styles.scss"
 
-type Props = {
+interface Props {
   name: string
   closeModal: () => void
 }

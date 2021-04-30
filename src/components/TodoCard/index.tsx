@@ -3,7 +3,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked"
 import { useState } from "react"
 
-type Props = {
+interface Props {
   todo: string
 }
 

@@ -1,6 +1,6 @@
 import "./styles.scss"
 
-type Props = {
+interface Props {
   name: string
   onClick: React.MouseEventHandler<HTMLButtonElement>
 }
