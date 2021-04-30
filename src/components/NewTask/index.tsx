@@ -1,29 +1,29 @@
-import { ChangeEvent, useState } from "react"
 import { PrimarySmallButton } from "../PrimarySmallButton"
 import { SecondarySmallButton } from "../SecondarySmallButton"
 import "./styles.scss"
 
-export function NewTask() {
-  const [todo, setTodo] = useState("")
+type Props = {
+  onChange: (value: string) => void
+  onClick: () => void
+  closeModal: () => void
+  open: boolean
+}
 
-  const handleChangeEvent = (event: ChangeEvent<HTMLInputElement>): void => {
-    setTodo(event.target.value)
-  }
-  console.log(todo)
-  return (
-    <div className="wrapper">
+export function NewTask({ onChange, onClick, closeModal, open }: Props) {
+  return open ? (
+    <div className="modal">
       <div className="new-task">
         <h5>New Task</h5>
         <input
           type="text"
           placeholder="Task description"
-          onChange={handleChangeEvent}
+          onChange={(event) => onChange(event.target.value)}
         />
         <div className="btn-div">
-          <SecondarySmallButton name="Cancel" />
-          <PrimarySmallButton name="Save" />
+          <SecondarySmallButton name="Cancel" closeModal={closeModal} />
+          <PrimarySmallButton name="Save" onClick={() => onClick()} />
         </div>
       </div>
     </div>
-  )
+  ) : null
 }
