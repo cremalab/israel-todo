@@ -24,8 +24,7 @@ export function TodoContainer() {
       alert("You must Enter todo to save!")
     }
   }
-  console.log(todo)
-  console.log(allTodos)
+
   const openModal = () => {
     setShowModal(true)
   }
