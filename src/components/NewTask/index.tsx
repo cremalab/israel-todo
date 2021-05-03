@@ -2,7 +2,7 @@ import { PrimarySmallButton } from "../PrimarySmallButton"
 import { SecondarySmallButton } from "../SecondarySmallButton"
 import "./styles.scss"
 
-interface Props {
+export interface Props {
   onChange: (value: string) => void
   onClick: () => void
   closeModal: () => void
