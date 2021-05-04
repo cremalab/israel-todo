@@ -9,7 +9,15 @@ export function TodoContainer() {
   const [showModal, setShowModal] = useState(false)
   const [todo, setTodo] = useState("")
   const [allTodos, setAllTodos] = useState<Todo[]>([])
+  const [clicked, setClicked] = useState(false)
 
+  const handleIconClick = (): void => {
+    if (!clicked) {
+      setClicked(true)
+    } else {
+      setClicked(false)
+    }
+  }
   const handleChangeEvent = (value: string): void => {
     setTodo(value)
   }
@@ -32,13 +40,30 @@ export function TodoContainer() {
     console.log("clicked")
     setShowModal(!showModal)
   }
-
+  const markAsCompleted = (id: string) => {
+    handleIconClick()
+    const updatedList = allTodos.map((item) => {
+      if (item.id === id) {
+        return { ...item, isCompleted: !item.isCompleted }
+      }
+      return item
+    })
+    setAllTodos(updatedList)
+  }
   return (
     <div className="wrapper">
       <div className="todos">
         <h3 id="active-tasks">Active Tasks</h3>
-        {allTodos.map(({ todo, id }) => {
-          return <TodoCard todo={todo} key={id} />
+        {allTodos.map(({ todo, id, isCompleted }) => {
+          return (
+            <TodoCard
+              todo={todo}
+              key={id}
+              handleIconClick={() => markAsCompleted(id)}
+              clicked={clicked}
+              isCompleted={isCompleted}
+            />
+          )
         })}
 
         <button className="new-task-btn" onClick={openModal}>
