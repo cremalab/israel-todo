@@ -42,7 +42,7 @@ export function TodoContainer() {
         })}
 
         <button className="new-task-btn" onClick={openModal}>
-          <p id="btn-text">Create New Task</p>
+          <span id="btn-text">Create New Task</span>
         </button>
         <NewTask
           onClick={handleSaveTodo}
