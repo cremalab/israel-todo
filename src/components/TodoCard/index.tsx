@@ -18,8 +18,6 @@ export function TodoCard(props: Props) {
     } else {
       setClicked(false)
     }
-
-    // change <AddCircleIcon /> to <BlockIcon /> at "id"
   }
   return (
     <div className="card">
