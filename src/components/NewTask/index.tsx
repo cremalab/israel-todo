@@ -15,6 +15,7 @@ export function NewTask({ onChange, onClick, closeModal, open }: Props) {
       <div className="new-task">
         <h5>New Task</h5>
         <input
+          id="Task-input"
           type="text"
           placeholder="Task description"
           onChange={(event) => onChange(event.target.value)}
