@@ -11,16 +11,9 @@ export interface Props {
 }
 
 export function TodoCard(props: Props) {
+  // Class is determined by whether a todo is completed. This is handled on the TodoContainer
   const completedClass = props.isCompleted ? " text striked-text" : "text"
-  // const [clicked, setClicked] = useState(false)
 
-  // const handleIconClick = (): void => {
-  //   if (!clicked) {
-  //     setClicked(true)
-  //   } else {
-  //     setClicked(false)
-  //   }
-  // }
   return (
     <div className="card">
       <div className="card-content">

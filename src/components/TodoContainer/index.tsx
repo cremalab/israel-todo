@@ -11,6 +11,7 @@ export function TodoContainer() {
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [clicked, setClicked] = useState(false)
 
+  // Function that handles the check circle (whether it is clicked or not)
   const handleIconClick = (): void => {
     if (!clicked) {
       setClicked(true)
@@ -18,9 +19,11 @@ export function TodoContainer() {
       setClicked(false)
     }
   }
+  // This function will set a todo with useState as the user is typing in a todo
   const handleChangeEvent = (value: string): void => {
     setTodo(value)
   }
+  // Saves todo with ID, isCompleted and todo
   const handleSaveTodo = () => {
     const newTodo: Todo = { id: uuidv4(), todo, isCompleted: false }
 
@@ -32,14 +35,16 @@ export function TodoContainer() {
       alert("You must Enter todo to save!")
     }
   }
-
+  // function which opens modal
   const openModal = () => {
     setShowModal(true)
   }
+  // function which closes modal
   const closeModal = () => {
     console.log("clicked")
     setShowModal(!showModal)
   }
+  // function which allows user to mark todo as completed.
   const markAsCompleted = (id: string) => {
     handleIconClick()
     const updatedList = allTodos.map((item) => {
