@@ -1,20 +1,20 @@
-import decoratorCentered from "@storybook/addon-centered"
-import { TodoListFilter } from "./TodoListFilter"
-
-/**
- * See Storybook Docs: Writing Stories
- * https://storybook.js.org/docs/basics/writing-stories/
- */
+import { Meta, Story } from "@storybook/react"
+import { Props, TodoListFilter } from "./TodoListFilter"
 
 export default {
-  title: "TodoListFilter",
-  decorators: [decoratorCentered],
-}
+  title: "Components/TodoListFilter",
+  args: {
+    allTodos: [],
+    markAsCompleted: (id) => console.log(id),
+    isCompleted: true,
+  },
+} as Meta<Props>
 
-export const example = () => (
-  <TodoListFilter
-    allTodos={[]}
-    markAsCompleted={(id) => console.log(id)}
-    isCompleted
-  />
-)
+const Template: Story<Props> = (args) => <TodoListFilter {...args} />
+
+export const TodoListFilterStory = Template.bind({})
+TodoListFilterStory.args = {
+  allTodos: [{ id: "123", todo: "Meeting", isCompleted: false }],
+  isCompleted: false,
+  markAsCompleted: (id) => console.log(id),
+}
