@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1px 0;
+  padding: 10px 0;
   width: 100%;
   margin: 15px 0px;
   background: rgba(65, 88, 196, 0.1);
@@ -50,4 +50,18 @@
   .todos {
     max-width: 80%;
   }
+  .completed-todos {
+    max-width: 80%;
+  }
+}
+
+.completed-todos {
+  min-width: 50%;
+}
+
+.wrapper-completed {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 50vh;
 }

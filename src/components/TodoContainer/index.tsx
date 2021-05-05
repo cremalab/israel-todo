@@ -3,7 +3,7 @@ import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { Todo } from "../../types/Todo"
 import { NewTask } from "../NewTask"
-import { TodoCard } from "../TodoCard"
+import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
   const [showModal, setShowModal] = useState(false)
@@ -11,16 +11,8 @@ export function TodoContainer() {
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [clicked, setClicked] = useState(false)
 
-  // Function that handles the check circle (whether it is clicked or not)
-  const handleIconClick = (): void => {
-    if (!clicked) {
-      setClicked(true)
-    } else {
-      setClicked(false)
-    }
-  }
   // This function will set a todo with useState as the user is typing in a todo
-  const handleChangeEvent = (value: string): void => {
+  const handleChangeEvent = (value: string) => {
     setTodo(value)
   }
   // Saves todo with ID, isCompleted and todo
@@ -48,7 +40,7 @@ export function TodoContainer() {
   const markAsCompleted = (id: string) => {
     const updatedList = allTodos.map((item) => {
       if (item.id === id) {
-        handleIconClick()
+        setClicked(!clicked)
         return { ...item, isCompleted: !item.isCompleted }
       }
       return item
@@ -56,33 +48,36 @@ export function TodoContainer() {
     setAllTodos(updatedList)
   }
   return (
-    <div className="wrapper">
-      <div className="todos">
-        <h3 id="active-tasks">Active Tasks</h3>
-        {allTodos.map(({ todo, id, isCompleted }) => {
-          return (
-            <TodoCard
-              todo={todo}
-              key={id}
-              handleIconClick={() => {
-                markAsCompleted(id)
-              }}
-              clicked={isCompleted}
-              isCompleted={isCompleted}
-            />
-          )
-        })}
+    <>
+      <div className="wrapper">
+        <div className="todos">
+          <h3 id="active-tasks">Active Tasks</h3>
 
-        <button className="new-task-btn" onClick={openModal}>
-          <span id="btn-text">Create New Task</span>
-        </button>
-        <NewTask
-          onClick={handleSaveTodo}
-          onChange={handleChangeEvent}
-          closeModal={closeModal}
-          open={showModal}
-        />
+          <TodoListFilter
+            allTodos={allTodos}
+            markAsCompleted={markAsCompleted}
+          />
+
+          <button className="new-task-btn" onClick={openModal}>
+            <span id="btn-text">Create New Task</span>
+          </button>
+          <NewTask
+            onClick={handleSaveTodo}
+            onChange={handleChangeEvent}
+            closeModal={closeModal}
+            open={showModal}
+          />
+        </div>
       </div>
-    </div>
+      <div className="wrapper-completed">
+        <div className="completed-todos">
+          <TodoListFilter
+            allTodos={allTodos}
+            isCompleted
+            markAsCompleted={markAsCompleted}
+          />
+        </div>
+      </div>
+    </>
   )
 }
