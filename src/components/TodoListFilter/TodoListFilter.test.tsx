@@ -30,4 +30,18 @@ describe("TodoListFilter", () => {
     const element = getByText(todoText)
     expect(element).toHaveClass("striked-text")
   })
+  test("isCompleted set to true should also show up on document", () => {
+    const markAsCompleted = jest.fn()
+    const todoText = "something"
+    const allTodos = [{ id: "123", todo: "something", isCompleted: true }]
+    const { getByText } = render(
+      <TodoListFilter
+        markAsCompleted={markAsCompleted}
+        isCompleted={true}
+        allTodos={allTodos}
+      />,
+    )
+    const element = getByText(todoText)
+    expect(element).toBeInTheDocument()
+  })
 })
