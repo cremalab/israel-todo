@@ -46,9 +46,9 @@ export function TodoContainer() {
   }
   // function which allows user to mark todo as completed.
   const markAsCompleted = (id: string) => {
-    handleIconClick()
     const updatedList = allTodos.map((item) => {
       if (item.id === id) {
+        handleIconClick()
         return { ...item, isCompleted: !item.isCompleted }
       }
       return item
@@ -64,8 +64,10 @@ export function TodoContainer() {
             <TodoCard
               todo={todo}
               key={id}
-              handleIconClick={() => markAsCompleted(id)}
-              clicked={clicked}
+              handleIconClick={() => {
+                markAsCompleted(id)
+              }}
+              clicked={isCompleted}
               isCompleted={isCompleted}
             />
           )
