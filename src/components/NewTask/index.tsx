@@ -2,7 +2,7 @@ import { PrimarySmallButton } from "../PrimarySmallButton"
 import { SecondarySmallButton } from "../SecondarySmallButton"
 import "./styles.scss"
 
-interface Props {
+export interface Props {
   onChange: (value: string) => void
   onClick: () => void
   closeModal: () => void
@@ -15,6 +15,7 @@ export function NewTask({ onChange, onClick, closeModal, open }: Props) {
       <div className="new-task">
         <h5>New Task</h5>
         <input
+          id="Task-input"
           type="text"
           placeholder="Task description"
           onChange={(event) => onChange(event.target.value)}
