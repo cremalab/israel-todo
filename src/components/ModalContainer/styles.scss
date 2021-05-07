@@ -64,3 +64,15 @@ input {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   display: flex;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react"
-import { NewTask } from "."
+import { ModalContainer } from "."
 
 describe("Form", () => {
   test("Form", () => {
@@ -8,7 +8,7 @@ describe("Form", () => {
     const saveButton = jest.fn()
 
     const { getByText, getByPlaceholderText } = render(
-      <NewTask
+      <ModalContainer
         onChange={onChange}
         closeModal={onClick}
         open={true}

@@ -8,6 +8,7 @@ export interface Props {
   isCompleted?: boolean
   handleIconClick: () => void
   clicked: boolean
+  edit: () => void
 }
 
 export function TodoCard(props: Props) {
@@ -24,7 +25,7 @@ export function TodoCard(props: Props) {
             <RadioButtonUncheckedIcon className="ellipse" />
           )}
         </div>
-        <div className="text-date-section">
+        <div className="text-date-section" onClick={props.edit}>
           <p className={completedClass}>{props.todo}</p>
         </div>
       </div>
