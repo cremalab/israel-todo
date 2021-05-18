@@ -6,11 +6,13 @@ describe("TodoListFilter", () => {
     const markAsCompleted = jest.fn()
     const todoText = "something"
     const allTodos = [{ id: "123", todo: "something", isCompleted: false }]
+    const handleEditTask = jest.fn()
     const { getByText } = render(
       <TodoListFilter
         markAsCompleted={markAsCompleted}
         isCompleted={false}
         allTodos={allTodos}
+        editTask={handleEditTask}
       />,
     )
     const element = getByText(todoText)
@@ -20,11 +22,13 @@ describe("TodoListFilter", () => {
     const markAsCompleted = jest.fn()
     const todoText = "something"
     const allTodos = [{ id: "123", todo: "something", isCompleted: true }]
+    const handleEditTask = jest.fn()
     const { getByText } = render(
       <TodoListFilter
         markAsCompleted={markAsCompleted}
         isCompleted={true}
         allTodos={allTodos}
+        editTask={handleEditTask}
       />,
     )
     const element = getByText(todoText)
@@ -34,11 +38,14 @@ describe("TodoListFilter", () => {
     const markAsCompleted = jest.fn()
     const todoText = "something"
     const allTodos = [{ id: "123", todo: "something", isCompleted: true }]
+    const handleEditTask = jest.fn()
+
     const { getByText } = render(
       <TodoListFilter
         markAsCompleted={markAsCompleted}
         isCompleted={true}
         allTodos={allTodos}
+        editTask={handleEditTask}
       />,
     )
     const element = getByText(todoText)

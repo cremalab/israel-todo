@@ -6,6 +6,7 @@ describe("TodoContainer", () => {
     const onClick = jest.fn()
     const { getByText } = render(<TodoContainer />)
     const button = getByText("Create New Task")
+
     fireEvent.click(button)
     expect(onClick).toBeDefined()
   })

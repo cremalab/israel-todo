@@ -6,13 +6,15 @@ describe("Form", () => {
     const onClick = jest.fn()
     const onChange = jest.fn()
     const saveButton = jest.fn()
-
+    const handleDelete = jest.fn()
     const { getByText, getByPlaceholderText } = render(
       <ModalContainer
         onChange={onChange}
         closeModal={onClick}
         open={true}
-        onClick={saveButton}
+        onSave={saveButton}
+        onDelete={handleDelete}
+        title={"New Task"}
       />,
     )
     fireEvent.change(getByPlaceholderText("Task description"), {

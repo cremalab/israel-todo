@@ -5,8 +5,14 @@ describe("TodoCard", () => {
   test("it renders a todo", () => {
     const handleIcon = jest.fn()
     const todoText = "Create testing for components"
+    const handleEdit = jest.fn()
     const { getByText } = render(
-      <TodoCard todo={todoText} clicked={false} handleIconClick={handleIcon} />,
+      <TodoCard
+        todo={todoText}
+        clicked={false}
+        handleIconClick={handleIcon}
+        edit={handleEdit}
+      />,
     )
     const element = getByText(todoText)
     expect(element).toBeInTheDocument()
@@ -14,12 +20,14 @@ describe("TodoCard", () => {
   test("completed todo is striked", () => {
     const handleIcon = jest.fn()
     const todoText = "Create testing for components"
+    const handleEdit = jest.fn()
     const { getByText } = render(
       <TodoCard
         todo={todoText}
         isCompleted={true}
         clicked={true}
         handleIconClick={handleIcon}
+        edit={handleEdit}
       />,
     )
     const element = getByText(todoText)
