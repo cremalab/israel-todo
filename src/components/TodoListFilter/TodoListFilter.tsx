@@ -5,7 +5,7 @@ export interface Props {
   allTodos: Todo[]
   markAsCompleted: (id: string) => void
   isCompleted?: boolean
-  editTask: (id: string) => void
+  editTask: (todoObject: Todo) => void
 }
 
 export function TodoListFilter({
@@ -23,7 +23,7 @@ export function TodoListFilter({
         .map(({ todo, id, isCompleted }) => {
           return (
             <TodoCard
-              edit={() => editTask(id)}
+              edit={() => editTask({ todo, id, isCompleted })}
               todo={todo}
               key={id}
               handleIconClick={() => {

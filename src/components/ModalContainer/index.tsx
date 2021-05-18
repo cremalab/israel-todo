@@ -5,7 +5,7 @@ import "./styles.scss"
 
 export interface Props {
   onChange: (value: string) => void
-  onClick: () => void
+  onSave: () => void
   closeModal: () => void
   open: boolean
   onDelete?: () => void
@@ -15,19 +15,16 @@ export interface Props {
 
 export function ModalContainer({
   onChange,
-  onClick,
+  onSave,
   closeModal,
   open,
   onDelete,
   title,
   todoText,
 }: Props) {
-  const placeholderText = onDelete ? todoText : "Task description"
   return open ? (
     <div className="modal">
       <div className="new-task">
-        {/* {will need to add props for the title } */}
-        {/* {add div with flex direction as row } */}
         <div className="row">
           <h5>{title}</h5>
           {onDelete ? (
@@ -40,12 +37,13 @@ export function ModalContainer({
         <input
           id="Task-input"
           type="text"
-          placeholder={placeholderText}
+          value={todoText}
+          placeholder={"Task description"}
           onChange={(event) => onChange(event.target.value)}
         />
         <div className="btn-div">
           <SecondarySmallButton name="Cancel" closeModal={closeModal} />
-          <PrimarySmallButton name="Save" onClick={() => onClick()} />
+          <PrimarySmallButton name="Save" onClick={() => onSave()} />
         </div>
       </div>
     </div>

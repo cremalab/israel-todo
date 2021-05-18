@@ -1,5 +1,5 @@
-import { useState } from "react"
 // import { v4 as uuidv4 } from "uuid"
+import { useEffect, useState } from "react"
 import { Todo } from "../../types/Todo"
 import { ModalContainer } from "../ModalContainer"
 
@@ -9,27 +9,40 @@ export interface Props {
   closeModal: () => void
   showEditModal: boolean
   setEditedText?: ({ id, todo, isCompleted }: Todo) => void
-  todoText: string
+  todo?: Todo
 }
 
 export function EditTaskModal({
-  // allTodos,
-  // setAllTodos,
-  todoText,
-  setEditedText,
+  allTodos,
+  setAllTodos,
+  todo,
   showEditModal,
   closeModal,
 }: Props) {
-  const [todo, setTodo] = useState("")
+  useEffect(() => {
+    setUpdatedTodo(todo)
+  }, [todo])
+
+  const [updatedTodo, setUpdatedTodo] = useState(todo)
 
   const handleSaveTodo = () => {
-    console.log(todo)
-    setEditedText?.({ id: "", todo: "", isCompleted: false })
+    const updatedTodos = allTodos.map((item) => {
+      if (item.id === todo?.id) {
+        return { ...item, ...updatedTodo }
+      }
+      return item
+    })
+
+    setAllTodos(updatedTodos)
 
     closeModal()
   }
+
   const handleChangeEvent = (value: string) => {
-    setTodo(value)
+    if (todo) {
+      const updateTodo: Todo = { ...todo, todo: value }
+      setUpdatedTodo(updateTodo)
+    }
   }
   const handleDeleteTodo = () => {
     console.log("Deleted")
@@ -38,12 +51,12 @@ export function EditTaskModal({
   return (
     <ModalContainer
       title={"Edit Task"}
-      onClick={handleSaveTodo}
+      onSave={handleSaveTodo}
       onChange={handleChangeEvent}
       closeModal={closeModal}
       open={showEditModal}
       onDelete={handleDeleteTodo}
-      todoText={todoText}
+      todoText={updatedTodo?.todo}
     />
   )
 }

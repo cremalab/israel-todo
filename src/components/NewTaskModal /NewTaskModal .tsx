@@ -35,7 +35,7 @@ export function NewTaskModal({
   return (
     <ModalContainer
       title={"New Task"}
-      onClick={handleSaveTodo}
+      onSave={handleSaveTodo}
       onChange={handleChangeEvent}
       closeModal={closeModal}
       open={showModal}

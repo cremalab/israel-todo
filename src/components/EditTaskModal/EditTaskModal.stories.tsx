@@ -12,6 +12,6 @@ export const example = () => (
     allTodos={[]}
     closeModal={() => console.log("close")}
     showEditModal={true}
-    todoText={"hi"}
+    todo={{ id: "123", todo: "Meeting with Justin", isCompleted: false }}
   />
 )

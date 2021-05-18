@@ -7,19 +7,15 @@ import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
   const [allTodos, setAllTodos] = useState<Todo[]>([])
-  const [clicked, setClicked] = useState(false)
+  const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
-  const [editedObject, setEditedObject] = useState<Todo>()
-  const [editedText, setEditedText] = useState("")
-  // This function will set a todo with useState as the user is typing in a todo
+  const [selectedTodo, setSelectedTodo] = useState<Todo>()
 
-  // Saves todo with ID, isCompleted and todo
-  // function which opens modal
   const openModal = () => {
     setShowModal(true)
   }
-  // function which closes modal
+
   const closeModal = () => {
     setShowModal(!showModal)
   }
@@ -27,28 +23,22 @@ export function TodoContainer() {
   const closeEditModal = () => {
     setShowEditModal(false)
   }
-  const editTask = (id: string) => {
-    const editTodo = allTodos.find((todo) => todo.id === id)
-    setEditedText("Hello")
-    setEditedObject(editTodo)
+  const editTask = (todoObject: Todo) => {
+    setSelectedTodo(todoObject)
     setShowEditModal(true)
-    console.log(editedObject)
   }
-  // handle on delete
-  // const handleOnDelete = (id: string) => {
-  //   console.log(id)
-  // }
-  // function which allows user to mark todo as completed.
+
   const markAsCompleted = (id: string) => {
     const updatedList = allTodos.map((item) => {
       if (item.id === id) {
-        setClicked(!clicked)
+        setIsComplete(!isComplete)
         return { ...item, isCompleted: !item.isCompleted }
       }
       return item
     })
     setAllTodos(updatedList)
   }
+
   return (
     <>
       <div className="wrapper">
@@ -75,12 +65,13 @@ export function TodoContainer() {
             allTodos={allTodos}
             setAllTodos={setAllTodos}
             showEditModal={showEditModal}
-            todoText={editedText}
+            todo={selectedTodo}
           />
         </div>
       </div>
       <div className="wrapper-completed">
         <div className="completed-todos">
+          <h3 id="active-tasks">Completed Tasks</h3>
           <TodoListFilter
             allTodos={allTodos}
             isCompleted
