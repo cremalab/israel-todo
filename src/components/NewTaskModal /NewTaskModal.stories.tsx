@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react"
-import { NewTaskModal, Props } from "./NewTaskModal "
+import { NewTaskModal, Props } from "./NewTaskModal"
 
 export default {
   title: "Components/NewTask",
