@@ -1,4 +1,4 @@
-# `<NewTaskModal  />`
+# `<NewTaskModal />`
 
 DESCRIPTION_HERE
 
@@ -12,10 +12,11 @@ DESCRIPTION_HERE
 
 ## Example
 
-![NewTaskModal ](../../../.loki/reference/chrome_NewTaskModal _example.png)
+![NewTaskModal ](../../../.loki/reference/chrome_NewTaskModal \_example.png)
 
-> Image location: [`.loki/reference/chrome_NewTaskModal _example.png`](../../../.loki/reference/chrome_NewTaskModal _example.png)
-> 
-> To regenerate: 
+> Image location: [`.loki/reference/chrome_NewTaskModal _example.png`](../../../.loki/reference/chrome_NewTaskModal \_example.png)
+>
+> To regenerate:
+>
 > 1. `npm run test:playground` (skip if running)
-> 1. `npm run test:visual:update -- --storiesFilter="^NewTaskModal  example\$"`
+> 1. `npm run test:visual:update -- --storiesFilter="^NewTaskModal example\$"`

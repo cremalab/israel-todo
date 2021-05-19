@@ -2,7 +2,7 @@ import "./styles.scss"
 import { useState } from "react"
 import { Todo } from "../../types/Todo"
 import { EditTaskModal } from "../EditTaskModal"
-import { NewTaskModal } from "../NewTaskModal "
+import { NewTaskModal } from "../NewTaskModal"
 import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
