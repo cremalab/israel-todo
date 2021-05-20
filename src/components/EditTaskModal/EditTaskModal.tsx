@@ -1,7 +1,7 @@
 // import { v4 as uuidv4 } from "uuid"
 import { useEffect, useState } from "react"
 import { Todo } from "../../types/Todo"
-import { Modal } from "../Modal/Modal"
+import { Modal } from "../Modal"
 import { ModalContainer } from "../ModalContainer"
 
 export interface Props {
