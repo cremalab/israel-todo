@@ -5,6 +5,8 @@ describe("Form", () => {
   test("Form", () => {
     const onClick = jest.fn()
     const saveButton = jest.fn()
+    const closeModal = jest.fn()
+    const openModal = jest.fn()
     const allTodos = [{ id: "123", todo: "Zoom meeting", isCompleted: true }]
     // const handleDelete = jest.fn()
     const { getByText } = render(
@@ -13,6 +15,9 @@ describe("Form", () => {
         showEditModal={true}
         closeModal={onClick}
         setAllTodos={saveButton}
+        closeConfirmModal={closeModal}
+        openConfirmModal={false}
+        showConfirmModal={openModal}
       />,
     )
 

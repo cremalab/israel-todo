@@ -8,9 +8,11 @@ export interface Props {
   onSave: () => void
   closeModal: () => void
   open: boolean
-  onDelete?: () => void
   title: string
   todoText?: string
+  displayConfirmModal?: boolean
+  showConfirmModal?: () => void
+  onDelete?: (id: string) => void
 }
 
 export function ModalContainer({
@@ -18,9 +20,11 @@ export function ModalContainer({
   onSave,
   closeModal,
   open,
-  onDelete,
+
   title,
   todoText,
+  showConfirmModal,
+  onDelete,
 }: Props) {
   return open ? (
     <div className="modal">
@@ -29,7 +33,7 @@ export function ModalContainer({
           <h5>{title}</h5>
           {onDelete ? (
             <div className="col">
-              <DeleteOutlineIcon onClick={onDelete} />
+              <DeleteOutlineIcon onClick={showConfirmModal} />
             </div>
           ) : null}
         </div>

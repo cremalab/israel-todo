@@ -9,6 +9,7 @@ export function TodoContainer() {
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [openConfirmModal, setOpenConfirmModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [selectedTodo, setSelectedTodo] = useState<Todo>()
 
@@ -23,9 +24,17 @@ export function TodoContainer() {
   const closeEditModal = () => {
     setShowEditModal(false)
   }
+
+  const closeConfirmModal = () => {
+    setOpenConfirmModal(false)
+  }
   const editTask = (todoObject: Todo) => {
     setSelectedTodo(todoObject)
     setShowEditModal(true)
+  }
+
+  const openConfirm = () => {
+    setOpenConfirmModal(true)
   }
 
   const markAsCompleted = (id: string) => {
@@ -66,6 +75,9 @@ export function TodoContainer() {
             setAllTodos={setAllTodos}
             showEditModal={showEditModal}
             todo={selectedTodo}
+            showConfirmModal={openConfirm}
+            closeConfirmModal={closeConfirmModal}
+            openConfirmModal={openConfirmModal}
           />
         </div>
       </div>
