@@ -1,24 +1,20 @@
 import { fireEvent, render } from "@testing-library/react"
-import { NewTask } from "."
+import { EditTaskModal } from "."
 
 describe("Form", () => {
   test("Form", () => {
     const onClick = jest.fn()
-    const onChange = jest.fn()
     const saveButton = jest.fn()
-
-    const { getByText, getByPlaceholderText } = render(
-      <NewTask
-        onChange={onChange}
+    const allTodos = [{ id: "123", todo: "Zoom meeting", isCompleted: true }]
+    // const handleDelete = jest.fn()
+    const { getByText } = render(
+      <EditTaskModal
+        allTodos={allTodos}
+        showEditModal={true}
         closeModal={onClick}
-        open={true}
-        onClick={saveButton}
+        setAllTodos={saveButton}
       />,
     )
-    fireEvent.change(getByPlaceholderText("Task description"), {
-      target: { value: "Zoom Meeting" },
-    })
-    expect(onChange).toHaveBeenCalledWith("Zoom Meeting")
 
     const button = getByText("Cancel")
     const save = getByText("Save")
