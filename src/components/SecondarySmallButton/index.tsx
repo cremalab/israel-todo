@@ -2,14 +2,14 @@ import "./styles.scss"
 
 export interface Props {
   name: string
-  closeModal: () => void
+  onCancel: () => void
 }
 
 export function SecondarySmallButton(props: Props) {
   return (
     <button
       className="secondary-small secondary-small-text"
-      onClick={props.closeModal}
+      onClick={props.onCancel}
     >
       {props.name}
     </button>

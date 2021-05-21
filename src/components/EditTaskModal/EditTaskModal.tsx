@@ -1,8 +1,10 @@
-// import { v4 as uuidv4 } from "uuid"
 import { useEffect, useState } from "react"
 import { Todo } from "../../types/Todo"
+import { Card } from "../Card"
 import { Modal } from "../Modal"
-import { ModalContainer } from "../ModalContainer"
+import { PrimarySmallButton } from "../PrimarySmallButton"
+import { SecondarySmallButton } from "../SecondarySmallButton"
+import { TodoForm } from "../TodoForm"
 
 export interface Props {
   allTodos: Todo[]
@@ -11,14 +13,15 @@ export interface Props {
   showEditModal: boolean
   setEditedText?: ({ id, todo, isCompleted }: Todo) => void
   todo?: Todo
+  showModal: boolean
 }
 
 export function EditTaskModal({
   allTodos,
   setAllTodos,
   todo,
-  showEditModal,
   closeModal,
+  showModal,
 }: Props) {
   useEffect(() => {
     setUpdatedTodo(todo)
@@ -59,23 +62,39 @@ export function EditTaskModal({
     closeModal()
   }
 
+  const closeModals = () => {
+    closeConfirmModal()
+    closeModal()
+  }
+
   return (
     <>
-      <ModalContainer
-        title={"Edit Task"}
-        onSave={handleSaveTodo}
-        onChange={handleChangeEvent}
-        closeModal={closeModal}
-        open={showEditModal}
-        todoText={updatedTodo?.todo}
-        onDelete={openConfirm}
-      />
-      <Modal
-        title={"Confirm you would like to delete task."}
-        openConfirmModal={openConfirmModal}
-        closeModal={closeConfirmModal}
-        handleDelete={handleDeleteTodo}
-      />
+      <Modal open={showModal}>
+        <Card>
+          <TodoForm
+            onChange={handleChangeEvent}
+            title={"Edit Task"}
+            onSave={handleSaveTodo}
+            onCancel={closeModal}
+            onDelete={openConfirm}
+            todoText={updatedTodo?.todo}
+          ></TodoForm>
+        </Card>
+      </Modal>
+      <Modal open={openConfirmModal}>
+        <Card>
+          <div className="row">
+            <h5>Please confirm you would like to delete the todo.</h5>
+          </div>
+          <div className="btn-div">
+            <SecondarySmallButton name="Cancel" onCancel={closeModals} />
+            <PrimarySmallButton
+              name="Confirm"
+              onClick={() => handleDeleteTodo()}
+            />
+          </div>
+        </Card>
+      </Modal>
     </>
   )
 }

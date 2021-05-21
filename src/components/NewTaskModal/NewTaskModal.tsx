@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { Todo } from "../../types/Todo"
-import { ModalContainer } from "../ModalContainer"
+import { Card } from "../Card"
+import { Modal } from "../Modal"
+import { TodoForm } from "../TodoForm"
 
 export interface Props {
   allTodos: Todo[]
@@ -33,12 +35,15 @@ export function NewTaskModal({
   }
 
   return (
-    <ModalContainer
-      title={"New Task"}
-      onSave={handleSaveTodo}
-      onChange={handleChangeEvent}
-      closeModal={closeModal}
-      open={showModal}
-    />
+    <Modal open={showModal}>
+      <Card>
+        <TodoForm
+          onChange={handleChangeEvent}
+          title={"New Task"}
+          onSave={handleSaveTodo}
+          onCancel={closeModal}
+        />
+      </Card>
+    </Modal>
   )
 }

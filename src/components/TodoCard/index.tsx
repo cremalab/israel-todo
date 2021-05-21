@@ -14,7 +14,7 @@ export function TodoCard(props: Props) {
   const completedClass = props.isCompleted ? " text striked-text" : "text"
 
   return (
-    <div className="card">
+    <div className="todo-card">
       <div className="card-content">
         <div className="ellipse-div" onClick={props.handleIconClick}>
           {props.clicked ? (

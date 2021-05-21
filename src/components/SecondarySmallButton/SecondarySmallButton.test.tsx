@@ -5,7 +5,7 @@ describe("SecondarySmallButton", () => {
   test("renders SecondarySmallButton component", () => {
     const onClick = jest.fn()
     const { getByText } = render(
-      <SecondarySmallButton name="Cancel" closeModal={onClick} />,
+      <SecondarySmallButton name="Cancel" onCancel={onClick} />,
     )
     const button = getByText("Cancel")
     fireEvent.click(button)
