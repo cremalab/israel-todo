@@ -1,6 +1,7 @@
 // import { v4 as uuidv4 } from "uuid"
 import { useEffect, useState } from "react"
 import { Todo } from "../../types/Todo"
+import { Modal } from "../Modal"
 import { ModalContainer } from "../ModalContainer"
 
 export interface Props {
@@ -24,7 +25,14 @@ export function EditTaskModal({
   }, [todo])
 
   const [updatedTodo, setUpdatedTodo] = useState(todo)
+  const [openConfirmModal, setOpenConfirmModal] = useState(false)
 
+  const closeConfirmModal = () => {
+    setOpenConfirmModal(false)
+  }
+  const openConfirm = () => {
+    setOpenConfirmModal(true)
+  }
   const handleSaveTodo = () => {
     const updatedTodos = allTodos.map((item) => {
       if (item.id === todo?.id) {
@@ -45,18 +53,29 @@ export function EditTaskModal({
     }
   }
   const handleDeleteTodo = () => {
-    console.log("Deleted")
+    const updatedTodos = allTodos.filter((item) => item.id !== todo?.id)
+    setAllTodos(updatedTodos)
+    closeConfirmModal()
+    closeModal()
   }
 
   return (
-    <ModalContainer
-      title={"Edit Task"}
-      onSave={handleSaveTodo}
-      onChange={handleChangeEvent}
-      closeModal={closeModal}
-      open={showEditModal}
-      onDelete={handleDeleteTodo}
-      todoText={updatedTodo?.todo}
-    />
+    <>
+      <ModalContainer
+        title={"Edit Task"}
+        onSave={handleSaveTodo}
+        onChange={handleChangeEvent}
+        closeModal={closeModal}
+        open={showEditModal}
+        todoText={updatedTodo?.todo}
+        onDelete={openConfirm}
+      />
+      <Modal
+        title={"Confirm you would like to delete task."}
+        openConfirmModal={openConfirmModal}
+        closeModal={closeConfirmModal}
+        handleDelete={handleDeleteTodo}
+      />
+    </>
   )
 }

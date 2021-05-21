@@ -8,9 +8,9 @@ export interface Props {
   onSave: () => void
   closeModal: () => void
   open: boolean
-  onDelete?: () => void
   title: string
   todoText?: string
+  onDelete?: () => void
 }
 
 export function ModalContainer({
@@ -18,9 +18,9 @@ export function ModalContainer({
   onSave,
   closeModal,
   open,
-  onDelete,
   title,
   todoText,
+  onDelete,
 }: Props) {
   return open ? (
     <div className="modal">

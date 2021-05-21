@@ -4,6 +4,10 @@ import { EditTaskModal } from "./EditTaskModal"
 export default {
   title: "EditTaskModal",
   decorators: [decoratorCentered],
+  argTypes: {
+    onClick: { action: "clicked" },
+    closeModal: { action: "clicked" },
+  },
 }
 
 export const example = () => (
