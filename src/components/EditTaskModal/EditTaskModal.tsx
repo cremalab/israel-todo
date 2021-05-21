@@ -11,9 +11,6 @@ export interface Props {
   showEditModal: boolean
   setEditedText?: ({ id, todo, isCompleted }: Todo) => void
   todo?: Todo
-  showConfirmModal: () => void
-  closeConfirmModal: () => void
-  openConfirmModal: boolean
 }
 
 export function EditTaskModal({
@@ -22,16 +19,20 @@ export function EditTaskModal({
   todo,
   showEditModal,
   closeModal,
-  showConfirmModal,
-  closeConfirmModal,
-  openConfirmModal,
 }: Props) {
   useEffect(() => {
     setUpdatedTodo(todo)
   }, [todo])
 
   const [updatedTodo, setUpdatedTodo] = useState(todo)
+  const [openConfirmModal, setOpenConfirmModal] = useState(false)
 
+  const closeConfirmModal = () => {
+    setOpenConfirmModal(false)
+  }
+  const openConfirm = () => {
+    setOpenConfirmModal(true)
+  }
   const handleSaveTodo = () => {
     const updatedTodos = allTodos.map((item) => {
       if (item.id === todo?.id) {
@@ -66,9 +67,8 @@ export function EditTaskModal({
         onChange={handleChangeEvent}
         closeModal={closeModal}
         open={showEditModal}
-        showConfirmModal={showConfirmModal}
         todoText={updatedTodo?.todo}
-        onDelete={handleDeleteTodo}
+        onDelete={openConfirm}
       />
       <Modal
         title={"Confirm you would like to delete task."}
