@@ -1,5 +1,6 @@
 import "./styles.scss"
 import { useState } from "react"
+import { useAppSelector } from "../../hooks/useAppSelector"
 import { Todo } from "../../types/Todo"
 import { EditTaskModal } from "../EditTaskModal"
 import { NewTaskModal } from "../NewTaskModal"
@@ -8,7 +9,8 @@ import { TodoListFilter } from "../TodoListFilter"
 export function TodoContainer() {
   // we would use selector to get value of our todos
   // useSelector
-
+  const todos = useAppSelector((state) => state.todos)
+  console.log(todos)
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)
