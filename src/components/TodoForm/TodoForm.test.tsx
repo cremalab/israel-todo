@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react"
-import { ModalContainer } from "."
+import { TodoForm } from "."
 
 describe("Form", () => {
   test("Form", () => {
@@ -8,10 +8,9 @@ describe("Form", () => {
     const saveButton = jest.fn()
     const handleDelete = jest.fn()
     const { getByText, getByPlaceholderText } = render(
-      <ModalContainer
+      <TodoForm
         onChange={onChange}
-        closeModal={onClick}
-        open={true}
+        onCancel={onClick}
         onSave={saveButton}
         onDelete={handleDelete}
         title={"New Task"}

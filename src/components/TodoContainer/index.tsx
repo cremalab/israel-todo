@@ -68,6 +68,7 @@ export function TodoContainer() {
             setAllTodos={setAllTodos}
             showEditModal={showEditModal}
             todo={selectedTodo}
+            showModal={showEditModal}
           />
         </div>
       </div>

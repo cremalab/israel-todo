@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react"
-import { ModalContainer, Props } from "."
+import { Props, TodoForm } from "."
 
 export default {
   title: "Components/NewTask",
@@ -11,6 +11,6 @@ export default {
   },
 } as Meta<Props>
 
-const Template: Story<Props> = (args) => <ModalContainer {...args} />
+const Template: Story<Props> = (args) => <TodoForm {...args} />
 
 export const NewTaskStory = Template.bind({})
