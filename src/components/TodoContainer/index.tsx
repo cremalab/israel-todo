@@ -6,6 +6,9 @@ import { NewTaskModal } from "../NewTaskModal"
 import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
+  // we would use selector to get value of our todos
+  // useSelector
+
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)

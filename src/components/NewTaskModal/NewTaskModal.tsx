@@ -19,11 +19,13 @@ export function NewTaskModal({
   closeModal,
 }: Props) {
   const [todo, setTodo] = useState("")
-
+  // variable called dispatch set to the hook
   const handleSaveTodo = () => {
     const newTodo: Todo = { id: uuidv4(), todo, isCompleted: false }
     if (todo && !allTodos.includes(newTodo)) {
       setAllTodos([...allTodos, newTodo])
+      // instead of setAlltodos we would use dispatch which is a function that takes in our action
+      // displatch(addTodo())
       closeModal()
       setTodo("")
     } else {
