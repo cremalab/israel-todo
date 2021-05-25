@@ -27,9 +27,18 @@ export const todosSlice = createSlice({
       })
       state.value = updatedTodos
     },
+    toggleTodo(state, action: PayloadAction<Todo["id"]>) {
+      const updatedList = state.value.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, isCompleted: !item.isCompleted }
+        }
+        return item
+      })
+      state.value = updatedList
+    },
   },
 })
 
-export const { addTodo, deleteTodo, editTodo } = todosSlice.actions
+export const { addTodo, deleteTodo, editTodo, toggleTodo } = todosSlice.actions
 
 export default todosSlice.reducer

@@ -1,6 +1,8 @@
 import "./styles.scss"
 import { useState } from "react"
+import { useAppDispatch } from "../../hooks/useAppDispatch"
 import { useAppSelector } from "../../hooks/useAppSelector"
+import { toggleTodo } from "../../store/todos"
 import { Todo } from "../../types/Todo"
 import { EditTaskModal } from "../EditTaskModal"
 import { NewTaskModal } from "../NewTaskModal"
@@ -12,8 +14,8 @@ export function TodoContainer() {
 
   const todos = useAppSelector((state) => state.todos)
   console.log(todos)
-  const [allTodos, setAllTodos] = useState<Todo[]>([])
-  const [isComplete, setIsComplete] = useState(false)
+  const dispatch = useAppDispatch()
+  // const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const [showEditModal, setShowEditModal] = useState(false)
@@ -37,14 +39,15 @@ export function TodoContainer() {
   }
 
   const markAsCompleted = (id: string) => {
-    const updatedList = allTodos.map((item) => {
-      if (item.id === id) {
-        setIsComplete(!isComplete)
-        return { ...item, isCompleted: !item.isCompleted }
-      }
-      return item
-    })
-    setAllTodos(updatedList)
+    // const updatedList = allTodos.map((item) => {
+    //   if (item.id === id) {
+    //     setIsComplete(!isComplete)
+    //     return { ...item, isCompleted: !item.isCompleted }
+    //   }
+    //   return item
+    // })
+    // setAllTodos(updatedList)
+    dispatch(toggleTodo(id))
   }
 
   return (
@@ -64,8 +67,6 @@ export function TodoContainer() {
           <NewTaskModal closeModal={closeModal} showModal={showModal} />
           <EditTaskModal
             closeModal={closeEditModal}
-            allTodos={allTodos}
-            setAllTodos={setAllTodos}
             showEditModal={showEditModal}
             todo={selectedTodo}
             showModal={showEditModal}

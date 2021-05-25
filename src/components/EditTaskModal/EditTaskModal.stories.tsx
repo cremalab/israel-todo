@@ -12,8 +12,6 @@ export default {
 
 export const example = () => (
   <EditTaskModal
-    setAllTodos={(value) => console.log(value)}
-    allTodos={[]}
     closeModal={() => console.log("close")}
     showEditModal={true}
     todo={{ id: "123", todo: "Meeting with Justin", isCompleted: false }}

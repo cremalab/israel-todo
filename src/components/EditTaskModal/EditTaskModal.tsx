@@ -9,8 +9,6 @@ import { SecondarySmallButton } from "../SecondarySmallButton"
 import { TodoForm } from "../TodoForm"
 
 export interface Props {
-  allTodos: Todo[]
-  setAllTodos: (value: Todo[]) => void
   closeModal: () => void
   showEditModal: boolean
   setEditedText?: ({ id, todo, isCompleted }: Todo) => void
