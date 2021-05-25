@@ -17,7 +17,7 @@ describe("TodoCard", () => {
     const element = getByText(todoText)
     expect(element).toBeInTheDocument()
   })
-  test("completed todo is striked", () => {
+  test("completed todo is completed", () => {
     const handleIcon = jest.fn()
     const todoText = "Create testing for components"
     const handleEdit = jest.fn()
@@ -31,6 +31,6 @@ describe("TodoCard", () => {
       />,
     )
     const element = getByText(todoText)
-    expect(element).toHaveClass("striked-text")
+    expect(element).toHaveClass("completed-text")
   })
 })
