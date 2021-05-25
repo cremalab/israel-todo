@@ -9,6 +9,7 @@ import { TodoListFilter } from "../TodoListFilter"
 export function TodoContainer() {
   // we would use selector to get value of our todos
   // useSelector
+
   const todos = useAppSelector((state) => state.todos)
   console.log(todos)
   const [allTodos, setAllTodos] = useState<Todo[]>([])
@@ -53,7 +54,6 @@ export function TodoContainer() {
           <h3 id="active-tasks">Active Tasks</h3>
 
           <TodoListFilter
-            allTodos={allTodos}
             markAsCompleted={markAsCompleted}
             editTask={editTask}
           />
@@ -61,12 +61,7 @@ export function TodoContainer() {
           <button className="new-task-btn" onClick={openModal}>
             <span id="btn-text">Create New Task</span>
           </button>
-          <NewTaskModal
-            closeModal={closeModal}
-            allTodos={allTodos}
-            setAllTodos={setAllTodos}
-            showModal={showModal}
-          />
+          <NewTaskModal closeModal={closeModal} showModal={showModal} />
           <EditTaskModal
             closeModal={closeEditModal}
             allTodos={allTodos}
@@ -81,7 +76,6 @@ export function TodoContainer() {
         <div className="completed-todos">
           <h3 id="active-tasks">Completed Tasks</h3>
           <TodoListFilter
-            allTodos={allTodos}
             isCompleted
             markAsCompleted={markAsCompleted}
             editTask={editTask}

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useAppDispatch } from "../../hooks/useAppDispatch"
+import { deleteTodo, editTodo } from "../../store/todos"
 import { Todo } from "../../types/Todo"
 import { Card } from "../Card"
 import { Modal } from "../Modal"
@@ -16,17 +18,11 @@ export interface Props {
   showModal: boolean
 }
 
-export function EditTaskModal({
-  allTodos,
-  setAllTodos,
-  todo,
-  closeModal,
-  showModal,
-}: Props) {
+export function EditTaskModal({ todo, closeModal, showModal }: Props) {
   useEffect(() => {
     setUpdatedTodo(todo)
   }, [todo])
-
+  const dispatch = useAppDispatch()
   const [updatedTodo, setUpdatedTodo] = useState(todo)
   const [openConfirmModal, setOpenConfirmModal] = useState(false)
 
@@ -37,15 +33,7 @@ export function EditTaskModal({
     setOpenConfirmModal(true)
   }
   const handleSaveTodo = () => {
-    const updatedTodos = allTodos.map((item) => {
-      if (item.id === todo?.id) {
-        return { ...item, ...updatedTodo }
-      }
-      return item
-    })
-
-    setAllTodos(updatedTodos)
-
+    updatedTodo && dispatch(editTodo(updatedTodo))
     closeModal()
   }
 
@@ -56,8 +44,7 @@ export function EditTaskModal({
     }
   }
   const handleDeleteTodo = () => {
-    const updatedTodos = allTodos.filter((item) => item.id !== todo?.id)
-    setAllTodos(updatedTodos)
+    todo?.id && dispatch(deleteTodo(todo?.id))
     closeConfirmModal()
     closeModal()
   }
