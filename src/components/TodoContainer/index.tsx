@@ -10,7 +10,7 @@ import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
   const todos = useAppSelector((state) => state.todos)
-  console.log(todos)
+
   const dispatch = useAppDispatch()
   const [showModal, setShowModal] = useState(false)
 
@@ -42,7 +42,9 @@ export function TodoContainer() {
     <>
       <div className="wrapper">
         <div className="todos">
-          <h3 id="active-tasks">Active Tasks</h3>
+          {todos.value.length > 0 ? (
+            <h3 className="titles">Active Tasks</h3>
+          ) : null}
 
           <TodoListFilter
             markAsCompleted={markAsCompleted}
@@ -63,7 +65,9 @@ export function TodoContainer() {
       </div>
       <div className="wrapper-completed">
         <div className="completed-todos">
-          <h3 id="active-tasks">Completed Tasks</h3>
+          {todos.value.length > 0 ? (
+            <h3 className="titles">Completed Tasks</h3>
+          ) : null}
           <TodoListFilter
             isCompleted
             markAsCompleted={markAsCompleted}

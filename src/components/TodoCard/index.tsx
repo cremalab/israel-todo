@@ -11,7 +11,7 @@ export interface Props {
 }
 
 export function TodoCard(props: Props) {
-  const completedClass = props.isCompleted ? " text striked-text" : "text"
+  const completedClass = props.isCompleted ? " text completed-text" : "text"
 
   return (
     <div className="todo-card">
