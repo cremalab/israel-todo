@@ -1,4 +1,5 @@
 import { fireEvent, render } from "@testing-library/react"
+import { StateProvider } from "../StateProvider"
 import { NewTaskModal } from "."
 
 describe("New Task Modal", () => {
@@ -6,7 +7,9 @@ describe("New Task Modal", () => {
     const onClick = jest.fn()
 
     const { getByText } = render(
-      <NewTaskModal closeModal={onClick} showModal={true} />,
+      <StateProvider>
+        <NewTaskModal closeModal={onClick} showModal={true} />,
+      </StateProvider>,
     )
 
     const button = getByText("Cancel")
