@@ -5,16 +5,8 @@ describe("New Task Modal", () => {
   test("Modal", () => {
     const onClick = jest.fn()
 
-    const allTodos = [{ id: "123", todo: "Zoom meeting", isCompleted: true }]
-
-    const handleSetTodos = jest.fn()
     const { getByText } = render(
-      <NewTaskModal
-        closeModal={onClick}
-        allTodos={allTodos}
-        showModal={true}
-        setAllTodos={handleSetTodos}
-      />,
+      <NewTaskModal closeModal={onClick} showModal={true} />,
     )
 
     const button = getByText("Cancel")

@@ -9,13 +9,9 @@ import { NewTaskModal } from "../NewTaskModal"
 import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
-  // we would use selector to get value of our todos
-  // useSelector
-
   const todos = useAppSelector((state) => state.todos)
   console.log(todos)
   const dispatch = useAppDispatch()
-  // const [isComplete, setIsComplete] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const [showEditModal, setShowEditModal] = useState(false)
@@ -39,14 +35,6 @@ export function TodoContainer() {
   }
 
   const markAsCompleted = (id: string) => {
-    // const updatedList = allTodos.map((item) => {
-    //   if (item.id === id) {
-    //     setIsComplete(!isComplete)
-    //     return { ...item, isCompleted: !item.isCompleted }
-    //   }
-    //   return item
-    // })
-    // setAllTodos(updatedList)
     dispatch(toggleTodo(id))
   }
 
