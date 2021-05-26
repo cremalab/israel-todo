@@ -1,13 +1,17 @@
 import "./styles.scss"
 import { useState } from "react"
+import { useAppDispatch } from "../../hooks/useAppDispatch"
+import { useAppSelector } from "../../hooks/useAppSelector"
+import { toggleTodo } from "../../store/todos"
 import { Todo } from "../../types/Todo"
 import { EditTaskModal } from "../EditTaskModal"
 import { NewTaskModal } from "../NewTaskModal"
 import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
-  const [allTodos, setAllTodos] = useState<Todo[]>([])
-  const [isComplete, setIsComplete] = useState(false)
+  const todos = useAppSelector((state) => state.todos)
+
+  const dispatch = useAppDispatch()
   const [showModal, setShowModal] = useState(false)
 
   const [showEditModal, setShowEditModal] = useState(false)
@@ -31,24 +35,18 @@ export function TodoContainer() {
   }
 
   const markAsCompleted = (id: string) => {
-    const updatedList = allTodos.map((item) => {
-      if (item.id === id) {
-        setIsComplete(!isComplete)
-        return { ...item, isCompleted: !item.isCompleted }
-      }
-      return item
-    })
-    setAllTodos(updatedList)
+    dispatch(toggleTodo(id))
   }
 
   return (
     <>
       <div className="wrapper">
         <div className="todos">
-          <h3 id="active-tasks">Active Tasks</h3>
+          {todos.value.length > 0 ? (
+            <h3 className="titles">Active Tasks</h3>
+          ) : null}
 
           <TodoListFilter
-            allTodos={allTodos}
             markAsCompleted={markAsCompleted}
             editTask={editTask}
           />
@@ -56,16 +54,9 @@ export function TodoContainer() {
           <button className="new-task-btn" onClick={openModal}>
             <span id="btn-text">Create New Task</span>
           </button>
-          <NewTaskModal
-            closeModal={closeModal}
-            allTodos={allTodos}
-            setAllTodos={setAllTodos}
-            showModal={showModal}
-          />
+          <NewTaskModal closeModal={closeModal} showModal={showModal} />
           <EditTaskModal
             closeModal={closeEditModal}
-            allTodos={allTodos}
-            setAllTodos={setAllTodos}
             showEditModal={showEditModal}
             todo={selectedTodo}
             showModal={showEditModal}
@@ -74,9 +65,10 @@ export function TodoContainer() {
       </div>
       <div className="wrapper-completed">
         <div className="completed-todos">
-          <h3 id="active-tasks">Completed Tasks</h3>
+          {todos.value.length > 0 ? (
+            <h3 className="titles">Completed Tasks</h3>
+          ) : null}
           <TodoListFilter
-            allTodos={allTodos}
             isCompleted
             markAsCompleted={markAsCompleted}
             editTask={editTask}
