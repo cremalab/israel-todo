@@ -1,6 +1,10 @@
-import { stat } from "node:fs"
 import { Todo } from "../types/Todo"
-import todosReducer, { addTodo, deleteTodo, toggleTodo } from "./todos"
+import todosReducer, {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  toggleTodo,
+} from "./todos"
 import { store } from "."
 
 describe("todos reducer", () => {
@@ -35,5 +39,18 @@ describe("todos reducer", () => {
     store.dispatch(toggleTodo(newTodo.id))
     const state = store.getState().todos
     expect(state.value[0].isCompleted).toBe(true)
+  })
+  it("Should edit a todo", () => {
+    const newTodo: Todo = {
+      id: "123",
+      todo: "Add tests",
+      isCompleted: false,
+    }
+    store.dispatch(addTodo(newTodo))
+    store.dispatch(
+      editTodo({ id: "123", isCompleted: false, todo: "Meeting with Justin" }),
+    )
+    const state = store.getState().todos
+    expect(state.value[0].todo).toBe("Meeting with Justin")
   })
 })
