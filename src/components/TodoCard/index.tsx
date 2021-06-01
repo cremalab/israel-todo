@@ -16,7 +16,11 @@ export function TodoCard(props: Props) {
   return (
     <div className="todo-card">
       <div className="card-content">
-        <div className="ellipse-div" onClick={props.handleIconClick}>
+        <div
+          className="ellipse-div"
+          onClick={props.handleIconClick}
+          data-testid="complete-button"
+        >
           {props.clicked ? (
             <CheckCircleIcon className="ellipse" />
           ) : (
