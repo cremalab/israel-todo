@@ -26,7 +26,7 @@ export function TodoForm({
         <h5>{title}</h5>
         {onDelete ? (
           <div className="col">
-            <DeleteOutlineIcon onClick={onDelete} />
+            <DeleteOutlineIcon onClick={onDelete} data-testid="delete-button" />
           </div>
         ) : null}
       </div>

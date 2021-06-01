@@ -1,4 +1,7 @@
 import { render } from "@testing-library/react"
+import { store } from "../../store"
+import { addTodo, toggleTodo } from "../../store/todos"
+import { Todo } from "../../types/Todo"
 import { StateProvider } from "../StateProvider"
 import { TodoListFilter } from "./TodoListFilter"
 
@@ -16,7 +19,7 @@ describe("TodoListFilter", () => {
       </StateProvider>,
     )
   })
-  test("completed todo is striked", () => {
+  test("completed todo is faded", () => {
     const markAsCompleted = jest.fn()
 
     const handleEditTask = jest.fn()
@@ -30,10 +33,17 @@ describe("TodoListFilter", () => {
       </StateProvider>,
     )
   })
-  test("isCompleted set to true should also show up on document", () => {
+  test("isCompleted set to true ", () => {
     const markAsCompleted = jest.fn()
-
     const handleEditTask = jest.fn()
+    const newTodo: Todo = {
+      id: "123",
+      todo: "Add tests",
+      isCompleted: false,
+    }
+    store.dispatch(addTodo(newTodo))
+    store.dispatch(toggleTodo(newTodo.id))
+    const state = store.getState().todos
 
     render(
       <StateProvider>
@@ -44,5 +54,6 @@ describe("TodoListFilter", () => {
         />
       </StateProvider>,
     )
+    expect(state.value[0].isCompleted).toBe(true)
   })
 })
