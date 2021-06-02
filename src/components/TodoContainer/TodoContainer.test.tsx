@@ -38,6 +38,5 @@ describe("TodoContainer", () => {
     const value = state.value.find(({ id }) => id === "123")
 
     expect(value?.isCompleted).toBe(true)
-    console.log(state.value)
   })
 })
