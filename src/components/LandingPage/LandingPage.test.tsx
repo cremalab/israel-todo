@@ -1,6 +1,18 @@
+import { fireEvent, render } from "@testing-library/react"
+import { BrowserRouter } from "react-router-dom"
+import { StateProvider } from "../StateProvider"
 import { LandingPage } from "./LandingPage"
-import React from "react"
 
 describe("LandingPage", () => {
-  it.todo(`LandingPage needs to be tested`)
+  it(`LandingPage should render `, () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <StateProvider>
+          <LandingPage />
+        </StateProvider>
+      </BrowserRouter>,
+    )
+    const todoLogo = getByText("todo")
+    expect(todoLogo).toBeInTheDocument()
+  })
 })
