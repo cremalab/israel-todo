@@ -18,8 +18,8 @@ export function LandingPage() {
       <div className="welcome-section">
         <h2>Welcome!</h2>
         <p>Get things done with Todo.</p>
-        <Link to="todo" className="link">
-          <button data-testid="get-started">
+        <Link to="/todo" className="link">
+          <button>
             <span>Get Started</span>
           </button>
         </Link>

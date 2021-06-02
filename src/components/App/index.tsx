@@ -13,11 +13,11 @@ export function App() {
       <StateProvider>
         <PersistGate persistor={persistor} loading={null}>
           <div className="App">
-            <Header />
             <Route exact path="/">
               <LandingPage />
             </Route>
             <Route exact path="/todo">
+              <Header />
               <TodoContainer />
             </Route>
           </div>
