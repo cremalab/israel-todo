@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
 import { StateProvider } from "../StateProvider"
 import { LandingPage } from "./LandingPage"
