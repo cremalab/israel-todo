@@ -2,18 +2,18 @@
 
 .wrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  max-height: 20vh;
+  min-height: 50vh;
 }
 .container {
   position: relative;
   z-index: 1;
-  margin-top: 10em;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-width: 50vh;
-  max-height: 30vh;
+  margin-top: 2em;
 }
 //
 
@@ -28,7 +28,6 @@
 }
 
 #title {
-  height: 5em;
   font-family: Roboto;
   font-style: italic;
   font-size: 4.5em;
@@ -81,7 +80,6 @@ span {
 }
 
 #todo-section {
-  margin-top: 1.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
