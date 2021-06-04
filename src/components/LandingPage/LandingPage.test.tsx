@@ -12,7 +12,7 @@ describe("LandingPage", () => {
         </StateProvider>
       </BrowserRouter>,
     )
-    const todoLogo = getByText("todo")
-    expect(todoLogo).toBeInTheDocument()
+    const getStarted = getByText("Get Started")
+    expect(getStarted).toBeInTheDocument()
   })
 })
