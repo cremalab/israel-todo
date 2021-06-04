@@ -1,8 +1,9 @@
 import "./styles.scss"
 
 export interface Props {
+  id?: string
   name: string
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export function PrimarySmallButton(props: Props) {
@@ -10,6 +11,7 @@ export function PrimarySmallButton(props: Props) {
     <button
       className="primary-small primary-small-text"
       onClick={props.onClick}
+      id={props.id}
     >
       {props.name}
     </button>

@@ -1,6 +1,7 @@
 import "./styles.scss"
 import { Link } from "react-router-dom"
 import { ReactComponent as LandingLogo } from "../../assets/svg/LandingLogo.svg"
+import { PrimarySmallButton } from "../PrimarySmallButton"
 
 export function LandingPage() {
   return (
@@ -14,9 +15,7 @@ export function LandingPage() {
         <h2>Welcome!</h2>
         <p>Get things done with Todo.</p>
         <Link to="/todo" className="link">
-          <button>
-            <span>Get Started</span>
-          </button>
+          <PrimarySmallButton id="get-started" name={"Get Started"} />
         </Link>
       </div>
     </>
