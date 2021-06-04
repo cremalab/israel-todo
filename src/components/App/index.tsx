@@ -1,23 +1,26 @@
-import logo from "../../assets/logo.svg"
-import "./styles.css"
+import "./styles.scss"
+import { BrowserRouter, Route } from "react-router-dom"
+import { PersistGate } from "redux-persist/integration/react"
+import { persistor } from "../../store/index"
+import { Header } from "../Header"
+import { LandingPage } from "../LandingPage"
+import { StateProvider } from "../StateProvider"
+import { TodoContainer } from "../TodoContainer"
 
 export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/components/App/index.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <StateProvider>
+        <PersistGate persistor={persistor} loading={null}>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/todo">
+            <Header />
+            <TodoContainer />
+          </Route>
+        </PersistGate>
+      </StateProvider>
+    </BrowserRouter>
   )
 }

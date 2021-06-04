@@ -1,0 +1,50 @@
+.todo-card {
+  /* Auto Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  min-width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.card-content {
+  display: flex;
+  margin: 10px 0px;
+}
+
+.text-date-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 16px;
+  min-width: 100%;
+}
+
+.text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0px 0px;
+}
+
+.ellipse {
+  color: #4158c4;
+}
+
+.ellipse-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.completed-text {
+  opacity: 50%;
+}

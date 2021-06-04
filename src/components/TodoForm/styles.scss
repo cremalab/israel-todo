@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.card p {
+  height: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 12px 0px;
+}
+
+input {
+  width: 100%;
+  height: 32px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 24px 0px;
+  border: none;
+}
+.btn-div {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    max-width: 80%;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
