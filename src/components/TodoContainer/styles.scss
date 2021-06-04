@@ -6,9 +6,7 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 100%;
-  /* identical to box height, or 16px */
   letter-spacing: 0.005em;
-  /* Text/Black/Active */
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -16,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  padding: 1em 0;
   width: 100%;
   margin: 15px 0px;
   background: rgba(65, 88, 196, 0.1);
@@ -64,4 +62,26 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 50vh;
+}
+.initial-state {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.empty-state-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.empty-state-btn-container {
+  display: flex;
+  justify-content: center;
 }
