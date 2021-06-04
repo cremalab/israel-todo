@@ -12,15 +12,13 @@ export function App() {
     <BrowserRouter>
       <StateProvider>
         <PersistGate persistor={persistor} loading={null}>
-          <div className="App">
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route exact path="/todo">
-              <Header />
-              <TodoContainer />
-            </Route>
-          </div>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/todo">
+            <Header />
+            <TodoContainer />
+          </Route>
         </PersistGate>
       </StateProvider>
     </BrowserRouter>

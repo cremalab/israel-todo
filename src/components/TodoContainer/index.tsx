@@ -1,6 +1,7 @@
 import "./styles.scss"
-import CheckCircleIcon from "@material-ui/icons/CheckCircle"
+// import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import { useState } from "react"
+import { ReactComponent as EmptyState } from "../../assets/svg/Card.svg"
 import { useAppDispatch } from "../../hooks/useAppDispatch"
 import { useAppSelector } from "../../hooks/useAppSelector"
 import { toggleTodo } from "../../store/todos"
@@ -51,13 +52,7 @@ export function TodoContainer() {
               <h3 className="initial-state">
                 Create a task with the button below.
               </h3>
-              <div className="empty-state">
-                <CheckCircleIcon className="empty-state-checkbox" />
-                <div>
-                  <div className="empty-state-placeholder"></div>
-                  <div className="empty-state-placeholder short"></div>
-                </div>
-              </div>
+              <EmptyState />
             </div>
           )}
 

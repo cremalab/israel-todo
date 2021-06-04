@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-.App {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  /* Light Grey */
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   background: #f7f7f7;
+}
+html {
+  height: -webkit-fill-available;
 }

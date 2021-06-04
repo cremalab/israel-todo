@@ -17,26 +17,6 @@
 }
 //
 
-#oval {
-  width: 20em;
-  height: 20em;
-  background: #4158c4;
-  opacity: 0.15;
-  border-radius: 50%;
-  z-index: -1;
-  position: absolute;
-}
-
-#title {
-  font-family: Roboto;
-  font-style: italic;
-  font-size: 4.5em;
-  text-align: center;
-  letter-spacing: 0.470588px;
-  color: #4158c4;
-  font-weight: lighter;
-}
-
 .welcome-section {
   display: flex;
   align-items: center;
@@ -77,25 +57,6 @@ span {
   text-transform: capitalize;
   color: #ffffff;
   text-align: center;
-}
-
-#todo-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#underline {
-  height: 0.5em;
-  width: 3em;
-  background: #4158c4;
-  margin-bottom: -2em;
-}
-
-.checkmark {
-  margin-top: 0.5em;
-  color: #4158c4;
 }
 
 .link {

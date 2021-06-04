@@ -1,18 +1,13 @@
 import "./styles.scss"
-import DoneIcon from "@material-ui/icons/Done"
 import { Link } from "react-router-dom"
+import { ReactComponent as LandingLogo } from "../../assets/svg/LandingLogo.svg"
 
 export function LandingPage() {
   return (
     <>
       <div className="wrapper">
         <div className="container">
-          <div id="oval"></div>
-          <div id="todo-section">
-            <DoneIcon className="checkmark" style={{ fontSize: "5em" }} />
-            <div id="underline"></div>
-            <h1 id="title">todo</h1>
-          </div>
+          <LandingLogo />
         </div>
       </div>
       <div className="welcome-section">
