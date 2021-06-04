@@ -9,7 +9,7 @@ import { TodoContainer } from "../TodoContainer"
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <StateProvider>
         <PersistGate persistor={persistor} loading={null}>
           <Route exact path="/">
