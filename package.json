@@ -1,5 +1,7 @@
 {
+
   "name": "crema-app-web",
+  "homepage": "https://cremalab.github.io/israel-todo/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
