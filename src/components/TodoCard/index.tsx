@@ -12,13 +12,15 @@ export interface Props {
 
 export function TodoCard(props: Props) {
   const completedClass = props.isCompleted ? " text completed-text" : "text"
-
   return (
-    <div className="todo-card">
+    <div className="todo-card" onClick={props.edit}>
       <div className="card-content">
         <div
           className="ellipse-div"
-          onClick={props.handleIconClick}
+          onClick={(event) => {
+            props.handleIconClick()
+            event.stopPropagation()
+          }}
           data-testid="complete-button"
         >
           {props.clicked ? (
@@ -27,7 +29,7 @@ export function TodoCard(props: Props) {
             <RadioButtonUncheckedIcon className="ellipse" />
           )}
         </div>
-        <div className="text-date-section" onClick={props.edit}>
+        <div className="text-date-section">
           <p className={completedClass}>{props.todo}</p>
         </div>
       </div>
