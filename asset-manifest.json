@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/israel-todo/static/css/main.650919e8.chunk.css",
-    "main.js": "/israel-todo/static/js/main.d04dd948.chunk.js",
-    "main.js.map": "/israel-todo/static/js/main.d04dd948.chunk.js.map",
+    "main.js": "/israel-todo/static/js/main.d8d25d53.chunk.js",
+    "main.js.map": "/israel-todo/static/js/main.d8d25d53.chunk.js.map",
     "runtime-main.js": "/israel-todo/static/js/runtime-main.b76aa128.js",
     "runtime-main.js.map": "/israel-todo/static/js/runtime-main.b76aa128.js.map",
-    "static/js/2.e60e5e8d.chunk.js": "/israel-todo/static/js/2.e60e5e8d.chunk.js",
-    "static/js/2.e60e5e8d.chunk.js.map": "/israel-todo/static/js/2.e60e5e8d.chunk.js.map",
+    "static/js/2.9527cdde.chunk.js": "/israel-todo/static/js/2.9527cdde.chunk.js",
+    "static/js/2.9527cdde.chunk.js.map": "/israel-todo/static/js/2.9527cdde.chunk.js.map",
     "static/js/3.3bad5fe9.chunk.js": "/israel-todo/static/js/3.3bad5fe9.chunk.js",
     "static/js/3.3bad5fe9.chunk.js.map": "/israel-todo/static/js/3.3bad5fe9.chunk.js.map",
     "index.html": "/israel-todo/index.html",
     "static/css/main.650919e8.chunk.css.map": "/israel-todo/static/css/main.650919e8.chunk.css.map",
-    "static/js/2.e60e5e8d.chunk.js.LICENSE.txt": "/israel-todo/static/js/2.e60e5e8d.chunk.js.LICENSE.txt",
+    "static/js/2.9527cdde.chunk.js.LICENSE.txt": "/israel-todo/static/js/2.9527cdde.chunk.js.LICENSE.txt",
     "static/media/Card.f475b82b.svg": "/israel-todo/static/media/Card.f475b82b.svg",
     "static/media/LandingLogo.87ff2f6e.svg": "/israel-todo/static/media/LandingLogo.87ff2f6e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b76aa128.js",
-    "static/js/2.e60e5e8d.chunk.js",
+    "static/js/2.9527cdde.chunk.js",
     "static/css/main.650919e8.chunk.css",
-    "static/js/main.d04dd948.chunk.js"
+    "static/js/main.d8d25d53.chunk.js"
   ]
 }
