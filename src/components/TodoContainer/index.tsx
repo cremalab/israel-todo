@@ -1,5 +1,6 @@
 import "./styles.scss"
-// import CheckCircleIcon from "@material-ui/icons/CheckCircle"
+import ExpandLessIcon from "@material-ui/icons/ExpandLess"
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { useState } from "react"
 import { ReactComponent as EmptyState } from "../../assets/svg/Card.svg"
 import { useAppDispatch } from "../../hooks/useAppDispatch"
@@ -16,9 +17,9 @@ export function TodoContainer() {
 
   const dispatch = useAppDispatch()
   const [showModal, setShowModal] = useState(false)
-
   const [showEditModal, setShowEditModal] = useState(false)
   const [selectedTodo, setSelectedTodo] = useState<Todo>()
+  const [showCompleted, setShowCompleted] = useState(true)
 
   const openModal = () => {
     setShowModal(true)
@@ -39,6 +40,10 @@ export function TodoContainer() {
 
   const markAsCompleted = (id: string) => {
     dispatch(toggleTodo(id))
+  }
+
+  const toggleCompletedSection = () => {
+    setShowCompleted(!showCompleted)
   }
 
   return (
@@ -79,16 +84,31 @@ export function TodoContainer() {
         </div>
       </div>
       <div className="wrapper-completed">
-        <div className="completed-todos">
-          {todos.value.length > 0 ? (
+        {todos.value.length > 0 ? (
+          <div id="completed-todos-title">
             <h3 className="titles">Completed Tasks</h3>
-          ) : null}
-          <TodoListFilter
-            isCompleted
-            markAsCompleted={markAsCompleted}
-            editTask={editTask}
-          />
-        </div>
+            {showCompleted ? (
+              <div id="expand-section">
+                <p className="titles">Less</p>
+                <ExpandLessIcon onClick={toggleCompletedSection} />
+              </div>
+            ) : (
+              <div id="expand-section">
+                <p className="titles">Show</p>
+                <ExpandMoreIcon onClick={toggleCompletedSection} />
+              </div>
+            )}
+          </div>
+        ) : null}
+        {showCompleted ? (
+          <div className="completed-todos">
+            <TodoListFilter
+              isCompleted
+              markAsCompleted={markAsCompleted}
+              editTask={editTask}
+            />
+          </div>
+        ) : null}
       </div>
     </>
   )

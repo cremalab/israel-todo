@@ -12,8 +12,8 @@ export function LandingPage() {
         </div>
       </div>
       <div className="welcome-section">
-        <h2>Welcome!</h2>
-        <p>Get things done with Todo.</p>
+        <h2 id="welcome-header">Welcome!</h2>
+        <p id="welcome-p">Get things done with Todo.</p>
         <Link to="/todo" className="link">
           <PrimarySmallButton id="get-started" name={"Get Started"} />
         </Link>
