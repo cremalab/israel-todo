@@ -1,5 +1,5 @@
 import "./styles.scss"
-import { BrowserRouter, Route } from "react-router-dom"
+import { HashRouter, Route } from "react-router-dom"
 import { PersistGate } from "redux-persist/integration/react"
 import { persistor } from "../../store/index"
 import { Header } from "../Header"
@@ -9,7 +9,7 @@ import { TodoContainer } from "../TodoContainer"
 
 export function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <StateProvider>
         <PersistGate persistor={persistor} loading={null}>
           <Route exact path="/">
@@ -21,6 +21,6 @@ export function App() {
           </Route>
         </PersistGate>
       </StateProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
