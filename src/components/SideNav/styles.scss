@@ -1,0 +1,49 @@
+.side-nav {
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2em 2em;
+  padding-top: 5em;
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+}
+#list-title {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87);
+  width: 50%;
+}
+
+#my-tasks {
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.task-list-container {
+  width: 100%;
+  height: 80%;
+}
+
+#new-list {
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#new-list:hover {
+  cursor: pointer;
+}

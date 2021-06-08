@@ -57,6 +57,7 @@ export function EditTaskModal({ todo, closeModal, showModal }: Props) {
       <Modal open={showModal}>
         <Card>
           <TodoForm
+            placeholder={"Task Description"}
             onChange={handleChangeEvent}
             title={"Edit Task"}
             onSave={handleSaveTodo}
