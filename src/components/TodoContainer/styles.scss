@@ -58,9 +58,10 @@
 }
 
 .wrapper-completed {
+  flex-direction: column;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   min-height: 50vh;
 }
 .initial-state {
@@ -84,4 +85,16 @@
 .empty-state-btn-container {
   display: flex;
   justify-content: center;
+}
+
+#completed-todos-title {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+#expand-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
