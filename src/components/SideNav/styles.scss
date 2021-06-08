@@ -20,19 +20,12 @@
   width: 50%;
 }
 
-#my-tasks {
-  font-family: Roboto;
-  font-size: 16px;
-  letter-spacing: 0.005em;
-  color: rgba(0, 0, 0, 0.87);
-}
-
 .task-list-container {
   width: 100%;
   height: 80%;
 }
 
-#new-list {
+.new-list {
   font-family: Roboto;
   font-size: 16px;
   letter-spacing: 0.005em;
@@ -42,8 +35,16 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  padding: 0;
 }
 
-#new-list:hover {
+.new-list:hover {
   cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  margin-bottom: 0.75em;
 }

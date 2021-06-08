@@ -6,9 +6,16 @@ import { TodoForm } from "../TodoForm"
 interface Props {
   setShowListModal: (value: boolean) => void
   showListModal: boolean
+  setListNames: (value: string[]) => void
+  listNames: string[]
 }
 
-export function NewListModal({ showListModal, setShowListModal }: Props) {
+export function NewListModal({
+  showListModal,
+  setShowListModal,
+  listNames,
+  setListNames,
+}: Props) {
   const [listName, setListName] = useState("")
 
   const closeListModal = () => {
@@ -19,7 +26,7 @@ export function NewListModal({ showListModal, setShowListModal }: Props) {
     setListName(value)
   }
   const handleSaveListName = () => {
-    console.log(listName)
+    setListNames([...listNames, listName])
     closeListModal()
   }
 
