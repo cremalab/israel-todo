@@ -39,4 +39,21 @@ describe("TodoContainer", () => {
 
     expect(value?.isCompleted).toBe(true)
   })
+  test("It should hide completed todos", () => {
+    const { getByTestId, getByText } = render(
+      <StateProvider>
+        <TodoContainer />
+      </StateProvider>,
+    )
+    const todo = getByText("Add tests")
+    const state = store.getState().todos
+    const value = state.value.find(({ id }) => id === "123")
+
+    expect(value?.isCompleted).toBe(true)
+
+    const expandLess = getByTestId("expand-less")
+    fireEvent.click(expandLess)
+
+    expect(todo).not.toBeInTheDocument()
+  })
 })

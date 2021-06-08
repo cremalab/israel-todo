@@ -90,7 +90,10 @@ export function TodoContainer() {
             {showCompleted ? (
               <div id="expand-section">
                 <p className="titles">Less</p>
-                <ExpandLessIcon onClick={toggleCompletedSection} />
+                <ExpandLessIcon
+                  onClick={toggleCompletedSection}
+                  data-testid="expand-less"
+                />
               </div>
             ) : (
               <div id="expand-section">
