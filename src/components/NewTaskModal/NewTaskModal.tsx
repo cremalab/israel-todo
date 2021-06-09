@@ -33,7 +33,7 @@ export function NewTaskModal({ showModal, closeModal }: Props) {
     <Modal open={showModal}>
       <Card>
         <TodoForm
-          placeholder={"Task Description"}
+          placeholder={"Task description"}
           onChange={handleChangeEvent}
           title={"New Task"}
           onSave={handleSaveTodo}
