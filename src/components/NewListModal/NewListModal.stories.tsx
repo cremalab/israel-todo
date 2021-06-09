@@ -10,7 +10,5 @@ export const example = () => (
   <NewListModal
     setShowListModal={() => console.log("show")}
     showListModal={true}
-    listNames={["todos"]}
-    setListNames={() => console.log("how")}
   />
 )

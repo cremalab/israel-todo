@@ -1,4 +1,8 @@
 import { useState } from "react"
+import { v4 as uuidv4 } from "uuid"
+import { addList } from "../../ListStore/lists"
+import { useAppDispatch } from "../../hooks/useAppDispatch"
+import { List } from "../../types/List"
 import { Card } from "../Card"
 import { Modal } from "../Modal"
 import { TodoForm } from "../TodoForm"
@@ -6,17 +10,11 @@ import { TodoForm } from "../TodoForm"
 interface Props {
   setShowListModal: (value: boolean) => void
   showListModal: boolean
-  setListNames: (value: string[]) => void
-  listNames: string[]
 }
 
-export function NewListModal({
-  showListModal,
-  setShowListModal,
-  listNames,
-  setListNames,
-}: Props) {
+export function NewListModal({ showListModal, setShowListModal }: Props) {
   const [listName, setListName] = useState("")
+  const dispatch = useAppDispatch()
 
   const closeListModal = () => {
     setShowListModal(false)
@@ -26,7 +24,11 @@ export function NewListModal({
     setListName(value)
   }
   const handleSaveListName = () => {
-    setListNames([...listNames, listName])
+    const newListName: List = {
+      id: uuidv4(),
+      name: listName,
+    }
+    dispatch(addList(newListName))
     closeListModal()
   }
 

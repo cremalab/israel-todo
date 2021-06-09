@@ -38,5 +38,6 @@ describe("lists reducer", () => {
     const state = store.getState().lists
     const value = state.value.find(({ id }) => id === "123")
     expect(value?.name).toBe("Things to be done")
+    store.dispatch(deleteList(newList.id))
   })
 })
