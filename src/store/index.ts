@@ -14,9 +14,10 @@ import {
   persistStore,
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
+import lists from "../ListStore/lists"
 import todos from "./todos"
 
-const rootReducer = combineReducers({ todos })
+const rootReducer = combineReducers({ todos, lists })
 const persistConfig = {
   key: "root",
   version: 1,
