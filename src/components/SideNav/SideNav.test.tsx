@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react"
-import { addList } from "../../ListStore/lists"
+import { addList, deleteList } from "../../ListStore/lists"
 import { store } from "../../store"
 import { StateProvider } from "../StateProvider"
 import { SideNav } from "./SideNav"
@@ -18,11 +18,21 @@ describe("SideNav", () => {
     )
 
     const createButton = getByText("+ Create New List")
-
     fireEvent.click(createButton)
-
-    expect(openListModal).toHaveBeenCalled()
-
     expect(getByText("Things todo for the application")).toBeInTheDocument()
+    store.dispatch(deleteList("12345"))
+  })
+  it("Should open card with options to delete, edit list name", () => {
+    const openListModal = jest.fn()
+
+    const { getByText, getByTestId } = render(
+      <StateProvider>
+        <SideNav openListModal={openListModal} showSideNav={true} />,
+      </StateProvider>,
+    )
+
+    const dotButton = getByTestId("dot-button")
+    fireEvent.click(dotButton)
+    expect(getByText("Edit List Name")).toBeInTheDocument()
   })
 })

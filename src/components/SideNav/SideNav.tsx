@@ -31,6 +31,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                   >
                     {taskList.name}
                     <MoreVertIcon
+                      data-testid="dot-button"
                       onClick={(event) => {
                         event.stopPropagation()
                         openModifyCard()
