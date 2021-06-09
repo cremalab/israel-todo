@@ -10,6 +10,7 @@ export interface Props {
   title: string
   todoText?: string
   onDelete?: () => void
+  placeholder: string
 }
 
 export function TodoForm({
@@ -19,6 +20,7 @@ export function TodoForm({
   title,
   todoText,
   onDelete,
+  placeholder,
 }: Props) {
   return (
     <>
@@ -35,7 +37,7 @@ export function TodoForm({
         id="Task-input"
         type="text"
         value={todoText}
-        placeholder={"Task description"}
+        placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
       />
       <div className="btn-div">

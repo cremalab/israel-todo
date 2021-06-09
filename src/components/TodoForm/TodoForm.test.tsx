@@ -14,6 +14,7 @@ describe("Form", () => {
         onSave={saveButton}
         onDelete={handleDelete}
         title={"New Task"}
+        placeholder={"Task description"}
       />,
     )
     fireEvent.change(getByPlaceholderText("Task description"), {

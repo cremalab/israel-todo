@@ -8,8 +8,11 @@ import { useAppSelector } from "../../hooks/useAppSelector"
 import { toggleTodo } from "../../store/todos"
 import { Todo } from "../../types/Todo"
 import { EditTaskModal } from "../EditTaskModal"
+import { Header } from "../Header"
+import { NewListModal } from "../NewListModal"
 import { NewTaskModal } from "../NewTaskModal"
 import { PrimarySmallButton } from "../PrimarySmallButton"
+import { SideNav } from "../SideNav"
 import { TodoListFilter } from "../TodoListFilter"
 
 export function TodoContainer() {
@@ -20,6 +23,13 @@ export function TodoContainer() {
   const [showEditModal, setShowEditModal] = useState(false)
   const [selectedTodo, setSelectedTodo] = useState<Todo>()
   const [showCompleted, setShowCompleted] = useState(true)
+  const [showSideNav, setShowSideNav] = useState(false)
+  const [showListModal, setShowListModal] = useState(false)
+  const [listNames, setListNames] = useState(["My Tasks"])
+
+  const toggleSideNav = () => {
+    setShowSideNav(!showSideNav)
+  }
 
   const openModal = () => {
     setShowModal(true)
@@ -45,9 +55,19 @@ export function TodoContainer() {
   const toggleCompletedSection = () => {
     setShowCompleted(!showCompleted)
   }
+  const openListModal = () => {
+    setShowListModal(true)
+  }
 
   return (
     <>
+      <Header toggleSideNav={toggleSideNav} />
+      <SideNav
+        showSideNav={showSideNav}
+        openListModal={openListModal}
+        listNames={listNames}
+      />
+
       <div className="wrapper">
         <div className="todos">
           {todos.value.length > 0 ? (
@@ -60,7 +80,6 @@ export function TodoContainer() {
               <EmptyState />
             </div>
           )}
-
           <TodoListFilter
             markAsCompleted={markAsCompleted}
             editTask={editTask}
@@ -80,6 +99,12 @@ export function TodoContainer() {
             showEditModal={showEditModal}
             todo={selectedTodo}
             showModal={showEditModal}
+          />
+          <NewListModal
+            listNames={listNames}
+            setListNames={setListNames}
+            setShowListModal={setShowListModal}
+            showListModal={showListModal}
           />
         </div>
       </div>
