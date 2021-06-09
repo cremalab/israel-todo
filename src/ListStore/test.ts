@@ -36,6 +36,7 @@ describe("lists reducer", () => {
       }),
     )
     const state = store.getState().lists
-    expect(state.value[0].name).toBe("Things to be done")
+    const value = state.value.find(({ id }) => id === "123")
+    expect(value?.name).toBe("Things to be done")
   })
 })

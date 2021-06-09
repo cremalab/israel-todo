@@ -38,7 +38,9 @@ describe("todos reducer", () => {
     store.dispatch(addTodo(newTodo))
     store.dispatch(toggleTodo(newTodo.id))
     const state = store.getState().todos
-    expect(state.value[0].isCompleted).toBe(true)
+    const value = state.value.find(({ id }) => id === "123")
+
+    expect(value?.isCompleted).toBe(true)
   })
   it("Should edit a todo", () => {
     const newTodo: Todo = {
@@ -51,6 +53,8 @@ describe("todos reducer", () => {
       editTodo({ id: "123", isCompleted: false, todo: "Meeting with Justin" }),
     )
     const state = store.getState().todos
-    expect(state.value[0].todo).toBe("Meeting with Justin")
+    const value = state.value.find(({ id }) => id === "123")
+
+    expect(value?.todo).toBe("Meeting with Justin")
   })
 })
