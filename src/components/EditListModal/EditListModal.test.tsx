@@ -1,14 +1,18 @@
 import { render } from "@testing-library/react"
+import { StateProvider } from "../StateProvider"
 import { EditListModal } from "./EditListModal"
 // import React from "react"
 
 describe("EditListModal", () => {
-  it.todo(`EditListModal needs to be tested`, () => {
+  it(`EditListModal needs to be tested`, () => {
     render(
-      <EditListModal
-        showEditListModal={false}
-        setShowEditListModal={() => console.log("Clicked")}
-      />,
+      <StateProvider>
+        <EditListModal
+          showEditListModal={false}
+          setShowEditListModal={() => console.log("Clicked")}
+        />
+        ,
+      </StateProvider>,
     )
     expect(EditListModal).toBeDefined()
   })
