@@ -57,7 +57,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
               {listNames.value.map((taskList: List) => {
                 return (
                   <li
-                    className="new-list"
+                    className="new-list selected-list"
                     key={taskList.id}
                     onClick={() => {
                       setCurrentListInfo(taskList)
