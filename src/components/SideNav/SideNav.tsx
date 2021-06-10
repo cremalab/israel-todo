@@ -73,7 +73,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       }}
                     >
                       <Typography className={classes.typography}>
-                        Rename List
+                        Edit List Name
                       </Typography>
                     </Popover>
                   </li>
