@@ -1,7 +1,9 @@
+import Popover from "@material-ui/core/Popover"
+import Typography from "@material-ui/core/Typography"
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { useState } from "react"
 import { useAppSelector } from "../../hooks/useAppSelector"
-import { Card } from "../Card"
 import "./styles.scss"
 
 interface Props {
@@ -10,11 +12,30 @@ interface Props {
 }
 
 export function SideNav({ showSideNav, openListModal }: Props) {
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      typography: {
+        padding: theme.spacing(1),
+      },
+    }),
+  )
+  const classes = useStyles()
   const listNames = useAppSelector((state) => state.lists)
-  const [showModifyCard, setshowModifyCard] = useState(false)
-  const openModifyCard = () => {
-    setshowModifyCard(true)
+  // const [showModifyCard, setshowModifyCard] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
+  const [currentSelectedList, setCurrentSelectedList] = useState("")
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
   }
+  const open = Boolean(anchorEl)
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+  const setCurrentList = (id: string) => {
+    setCurrentSelectedList(id)
+  }
+  console.log(currentSelectedList)
   return (
     <>
       {showSideNav ? (
@@ -26,26 +47,38 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                 return (
                   <li
                     className="new-list"
-                    onClick={() => console.log(taskList.name, taskList.id)}
                     key={taskList.id}
+                    onClick={() => setCurrentList(taskList.id)}
                   >
                     {taskList.name}
-                    <MoreVertIcon
-                      data-testid="dot-button"
+
+                    <button id="wrapper-button" onClick={handleClick}>
+                      <MoreVertIcon data-testid="dot-button" />
+                    </button>
+                    <Popover
+                      anchorEl={anchorEl}
+                      open={open}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "left",
+                      }}
+                      onClose={handleClose}
                       onClick={(event) => {
                         event.stopPropagation()
-                        openModifyCard()
+                        console.log(taskList.id)
                       }}
-                    />
+                    >
+                      <Typography className={classes.typography}>
+                        Rename List
+                      </Typography>
+                    </Popover>
                   </li>
                 )
               })}
-              {showModifyCard ? (
-                <Card>
-                  <p>Edit List Name</p>
-                  <p>Delete List Name</p>
-                </Card>
-              ) : null}
             </ul>
             <button className="new-list" onClick={openListModal}>
               + Create New List
