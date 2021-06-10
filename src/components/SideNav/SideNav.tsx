@@ -5,6 +5,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { useState } from "react"
 import { useAppSelector } from "../../hooks/useAppSelector"
 import "./styles.scss"
+import { List } from "../../types/List"
+import { EditListModal } from "../EditListModal"
 
 interface Props {
   showSideNav: boolean
@@ -21,9 +23,10 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   )
   const classes = useStyles()
   const listNames = useAppSelector((state) => state.lists)
-  // const [showModifyCard, setshowModifyCard] = useState(false)
+  const [showEditListModal, setshowEditListModal] = useState(false)
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
-  const [currentSelectedList, setCurrentSelectedList] = useState("")
+  const [popoverSelectedList, setPopoverSelectedList] = useState("")
+  const [currentList, setCurrentList] = useState<List>()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -32,10 +35,17 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const handleClose = () => {
     setAnchorEl(null)
   }
-  const setCurrentList = (id: string) => {
-    setCurrentSelectedList(id)
+  const setCurrentPopover = (id: string) => {
+    setPopoverSelectedList(id)
   }
-  console.log(currentSelectedList)
+  const setCurrentListInfo = ({ id, name }: List) => {
+    setCurrentPopover(id)
+    setCurrentList({ id, name })
+  }
+  const openEditModal = () => {
+    setshowEditListModal(true)
+  }
+
   return (
     <>
       {showSideNav ? (
@@ -43,12 +53,14 @@ export function SideNav({ showSideNav, openListModal }: Props) {
           <div className="task-list-container">
             <ul>
               <h1 id="list-title">Lists</h1>
-              {listNames.value.map((taskList) => {
+              {listNames.value.map((taskList: List) => {
                 return (
                   <li
                     className="new-list"
                     key={taskList.id}
-                    onClick={() => setCurrentList(taskList.id)}
+                    onClick={() => {
+                      setCurrentListInfo(taskList)
+                    }}
                   >
                     {taskList.name}
 
@@ -69,10 +81,13 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       onClose={handleClose}
                       onClick={(event) => {
                         event.stopPropagation()
-                        console.log(taskList.id)
+                        console.log({ popoverSelectedList })
                       }}
                     >
-                      <Typography className={classes.typography}>
+                      <Typography
+                        className={classes.typography}
+                        onClick={openEditModal}
+                      >
                         Edit List Name
                       </Typography>
                     </Popover>
@@ -86,6 +101,11 @@ export function SideNav({ showSideNav, openListModal }: Props) {
           </div>
         </div>
       ) : null}
+      <EditListModal
+        showEditListModal={showEditListModal}
+        setShowEditListModal={setshowEditListModal}
+        list={currentList}
+      />
     </>
   )
 }

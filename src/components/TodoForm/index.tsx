@@ -8,7 +8,7 @@ export interface Props {
   onSave: () => void
   onCancel: () => void
   title: string
-  todoText?: string
+  text?: string
   onDelete?: () => void
   placeholder: string
 }
@@ -18,7 +18,7 @@ export function TodoForm({
   onSave,
   onCancel,
   title,
-  todoText,
+  text,
   onDelete,
   placeholder,
 }: Props) {
@@ -36,7 +36,7 @@ export function TodoForm({
       <input
         id="Task-input"
         type="text"
-        value={todoText}
+        value={text}
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
       />
