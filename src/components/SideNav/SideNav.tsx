@@ -27,6 +27,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const [popoverSelectedList, setPopoverSelectedList] = useState("")
   const [currentList, setCurrentList] = useState<List>()
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -38,14 +39,14 @@ export function SideNav({ showSideNav, openListModal }: Props) {
     setPopoverSelectedList(id)
   }
   const setCurrentListInfo = ({ id, name }: List) => {
-    setCurrentPopover(id)
     setCurrentList({ id, name })
+    setCurrentPopover(id)
   }
   const openEditModal = () => {
     setAnchorEl(null)
     setshowEditListModal(true)
   }
-
+  console.log(currentList?.name)
   return (
     <>
       {showSideNav ? (
@@ -70,7 +71,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
 
                     <button
                       className={
-                        taskList.id === currentList?.id
+                        taskList.name === currentList?.name
                           ? "selected-button "
                           : "wrapper-button"
                       }
@@ -86,14 +87,12 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                         vertical: "bottom",
                         horizontal: "right",
                       }}
+                      onClick={(event) => event.stopPropagation()}
                       transformOrigin={{
                         vertical: "top",
                         horizontal: "left",
                       }}
                       onClose={handleClose}
-                      onClick={(event) => {
-                        event.stopPropagation()
-                      }}
                     >
                       <Typography
                         className={classes.typography}
