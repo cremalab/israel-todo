@@ -1,6 +1,6 @@
-import { store } from "../store/index"
-import { List } from "../types/List"
-import listsReducer, { addList, deleteList, editList } from "./lists"
+import { List } from "../../types/List"
+import { store } from "../index"
+import listsReducer, { addList, deleteList, editList } from "."
 
 describe("lists reducer", () => {
   it("Should add a new list", () => {

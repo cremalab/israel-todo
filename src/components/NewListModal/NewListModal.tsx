@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { addList } from "../../ListStore/lists"
 import { useAppDispatch } from "../../hooks/useAppDispatch"
+import { addList } from "../../store/list"
 import { List } from "../../types/List"
 import { Card } from "../Card"
 import { Modal } from "../Modal"

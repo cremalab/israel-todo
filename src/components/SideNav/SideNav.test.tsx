@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react"
-import { addList, deleteList } from "../../ListStore/lists"
 import { store } from "../../store"
+import { addList, deleteList } from "../../store/list"
 import { StateProvider } from "../StateProvider"
 import { SideNav } from "./SideNav"
 

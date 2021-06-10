@@ -1,11 +1,6 @@
-import { Todo } from "../types/Todo"
-import todosReducer, {
-  addTodo,
-  deleteTodo,
-  editTodo,
-  toggleTodo,
-} from "./todos"
-import { store } from "."
+import { Todo } from "../../types/Todo"
+import { store } from "../index"
+import todosReducer, { addTodo, deleteTodo, editTodo, toggleTodo } from "."
 
 describe("todos reducer", () => {
   it("Should add a todo", () => {

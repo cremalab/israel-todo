@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { v4 as uuidv4 } from "uuid"
-import { List } from "../types/List"
+import { List } from "../../types/List"
 
 interface ListState {
   value: List[]
