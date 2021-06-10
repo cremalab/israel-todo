@@ -11,7 +11,7 @@
   left: 0;
   top: 0.5em;
 }
-#list-title {
+.list-title {
   font-family: Roboto;
   font-weight: bold;
   font-size: 16px;
@@ -36,6 +36,12 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
+  align-items: center;
+  padding: 0.25em 0.5em;
+}
+.selected-list {
+  background: rgba(65, 88, 196, 0.2);
+  border-radius: 4px;
 }
 
 .new-list:hover {
@@ -49,7 +55,17 @@ li {
   margin-bottom: 0.75em;
 }
 
-#wrapper-button {
+.wrapper-button {
   background-color: #ffffff;
   border: none;
+}
+
+.list-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-button {
+  border: none;
+  background: rgba(65, 88, 196, 0.00001);
 }

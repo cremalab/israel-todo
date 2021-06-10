@@ -27,7 +27,6 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const [popoverSelectedList, setPopoverSelectedList] = useState("")
   const [currentList, setCurrentList] = useState<List>()
-
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -52,12 +51,16 @@ export function SideNav({ showSideNav, openListModal }: Props) {
       {showSideNav ? (
         <div className="side-nav">
           <div className="task-list-container">
-            <ul>
-              <h1 id="list-title">Lists</h1>
+            <div className="list-div">
+              <h1 className="list-title">Lists</h1>
               {listNames.value.map((taskList: List) => {
                 return (
-                  <li
-                    className="new-list selected-list"
+                  <div
+                    className={
+                      taskList.id === currentList?.id
+                        ? "new-list selected-list list-title"
+                        : "new-list"
+                    }
                     key={taskList.id}
                     onClick={() => {
                       setCurrentListInfo(taskList)
@@ -65,7 +68,14 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                   >
                     {taskList.name}
 
-                    <button id="wrapper-button" onClick={handleClick}>
+                    <button
+                      className={
+                        taskList.id === currentList?.id
+                          ? "selected-button "
+                          : "wrapper-button"
+                      }
+                      onClick={handleClick}
+                    >
                       <MoreVertIcon data-testid="dot-button" />
                     </button>
                     <Popover
@@ -92,10 +102,11 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                         Edit List Name
                       </Typography>
                     </Popover>
-                  </li>
+                  </div>
                 )
               })}
-            </ul>
+            </div>
+
             <button className="new-list" onClick={openListModal}>
               + Create New List
             </button>
