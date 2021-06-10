@@ -43,6 +43,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
     setCurrentList({ id, name })
   }
   const openEditModal = () => {
+    setAnchorEl(null)
     setshowEditListModal(true)
   }
 
@@ -68,6 +69,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       <MoreVertIcon data-testid="dot-button" />
                     </button>
                     <Popover
+                      id={popoverSelectedList}
                       anchorEl={anchorEl}
                       open={open}
                       anchorOrigin={{
@@ -81,7 +83,6 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       onClose={handleClose}
                       onClick={(event) => {
                         event.stopPropagation()
-                        console.log({ popoverSelectedList })
                       }}
                     >
                       <Typography

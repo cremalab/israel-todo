@@ -17,10 +17,11 @@ export function EditListModal({
   setShowEditListModal,
   list,
 }: Props) {
-  const [updatedList, setUpdatedList] = useState(list)
   useEffect(() => {
     setUpdatedList(list)
   }, [list])
+
+  const [updatedList, setUpdatedList] = useState(list)
   const dispatch = useAppDispatch()
 
   const closeListModal = () => {
