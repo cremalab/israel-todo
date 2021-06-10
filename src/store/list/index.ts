@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { List } from "../types/List"
+import { v4 as uuidv4 } from "uuid"
+import { List } from "../../types/List"
 
 interface ListState {
   value: List[]
 }
 const initialState: ListState = {
-  value: [],
+  value: [{ id: uuidv4(), name: "My Tasks" }],
 }
 
 export const listsSlice = createSlice({

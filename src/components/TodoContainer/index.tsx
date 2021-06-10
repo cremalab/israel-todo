@@ -25,7 +25,6 @@ export function TodoContainer() {
   const [showCompleted, setShowCompleted] = useState(true)
   const [showSideNav, setShowSideNav] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
-  const [listNames, setListNames] = useState(["My Tasks"])
 
   const toggleSideNav = () => {
     setShowSideNav(!showSideNav)
@@ -62,11 +61,7 @@ export function TodoContainer() {
   return (
     <>
       <Header toggleSideNav={toggleSideNav} />
-      <SideNav
-        showSideNav={showSideNav}
-        openListModal={openListModal}
-        listNames={listNames}
-      />
+      <SideNav showSideNav={showSideNav} openListModal={openListModal} />
 
       <div className="wrapper">
         <div className="todos">
@@ -101,8 +96,6 @@ export function TodoContainer() {
             showModal={showEditModal}
           />
           <NewListModal
-            listNames={listNames}
-            setListNames={setListNames}
             setShowListModal={setShowListModal}
             showListModal={showListModal}
           />

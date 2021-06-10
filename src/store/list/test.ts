@@ -1,6 +1,6 @@
-import { store } from "../store/index"
-import { List } from "../types/List"
-import listsReducer, { addList, deleteList, editList } from "./lists"
+import { List } from "../../types/List"
+import { store } from "../index"
+import listsReducer, { addList, deleteList, editList } from "."
 
 describe("lists reducer", () => {
   it("Should add a new list", () => {
@@ -36,6 +36,8 @@ describe("lists reducer", () => {
       }),
     )
     const state = store.getState().lists
-    expect(state.value[0].name).toBe("Things to be done")
+    const value = state.value.find(({ id }) => id === "123")
+    expect(value?.name).toBe("Things to be done")
+    store.dispatch(deleteList(newList.id))
   })
 })

@@ -14,7 +14,7 @@ import {
   persistStore,
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-import lists from "../ListStore/lists"
+import lists from "./list"
 import todos from "./todos"
 
 const rootReducer = combineReducers({ todos, lists })

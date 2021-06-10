@@ -12,9 +12,5 @@ export default {
 }
 
 export const example = () => (
-  <SideNav
-    showSideNav={true}
-    openListModal={() => console.log("show")}
-    listNames={["My Tasks"]}
-  />
+  <SideNav showSideNav={true} openListModal={() => console.log("show")} />
 )

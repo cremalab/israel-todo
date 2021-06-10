@@ -1,19 +1,19 @@
 import { fireEvent, render } from "@testing-library/react"
+import { StateProvider } from "../StateProvider"
 import { NewListModal } from "./NewListModal"
 
 describe("NewListModal", () => {
   it("captures a value when onChange", () => {
-    const list = ["List Name"]
-    const setListNames = jest.fn()
     const setShowListModal = jest.fn()
 
     const { getByPlaceholderText, getByText } = render(
-      <NewListModal
-        showListModal={true}
-        listNames={list}
-        setListNames={setListNames}
-        setShowListModal={setShowListModal}
-      />,
+      <StateProvider>
+        <NewListModal
+          showListModal={true}
+          setShowListModal={setShowListModal}
+        />
+        ,
+      </StateProvider>,
     )
 
     const input = getByPlaceholderText("List Name") as HTMLInputElement

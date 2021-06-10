@@ -1,23 +1,38 @@
 import { fireEvent, render } from "@testing-library/react"
+import { store } from "../../store"
+import { addList, deleteList } from "../../store/list"
+import { StateProvider } from "../StateProvider"
 import { SideNav } from "./SideNav"
 
 describe("SideNav", () => {
   it("should allow user to create new task", () => {
-    const list = ["List Name"]
+    store.dispatch(
+      addList({ id: "12345", name: "Things todo for the application" }),
+    )
     const openListModal = jest.fn()
 
     const { getByText } = render(
-      <SideNav
-        listNames={list}
-        openListModal={openListModal}
-        showSideNav={true}
-      />,
+      <StateProvider>
+        <SideNav openListModal={openListModal} showSideNav={true} />,
+      </StateProvider>,
     )
 
     const createButton = getByText("+ Create New List")
-
     fireEvent.click(createButton)
+    expect(getByText("Things todo for the application")).toBeInTheDocument()
+    store.dispatch(deleteList("12345"))
+  })
+  it("Should open card with options to delete, edit list name", () => {
+    const openListModal = jest.fn()
 
-    expect(openListModal).toHaveBeenCalled()
+    const { getByText, getByTestId } = render(
+      <StateProvider>
+        <SideNav openListModal={openListModal} showSideNav={true} />,
+      </StateProvider>,
+    )
+
+    const dotButton = getByTestId("dot-button")
+    fireEvent.click(dotButton)
+    expect(getByText("Edit List Name")).toBeInTheDocument()
   })
 })
