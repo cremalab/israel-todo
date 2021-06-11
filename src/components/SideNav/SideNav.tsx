@@ -1,6 +1,6 @@
 import Popover from "@material-ui/core/Popover"
 import Typography from "@material-ui/core/Typography"
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles"
+import { Theme, makeStyles } from "@material-ui/core/styles"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { useState } from "react"
 import { useAppSelector } from "../../hooks/useAppSelector"
@@ -14,19 +14,12 @@ interface Props {
 }
 
 export function SideNav({ showSideNav, openListModal }: Props) {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      typography: {
-        padding: theme.spacing(1),
-      },
-    }),
-  )
   const classes = useStyles()
   const listNames = useAppSelector((state) => state.lists)
   const [showEditListModal, setshowEditListModal] = useState(false)
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const [popoverSelectedList, setPopoverSelectedList] = useState("")
-  const [currentList, setCurrentList] = useState<List>()
+  const [currentList, setCurrentList] = useState<List>(listNames.value[0])
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -80,6 +73,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       <MoreVertIcon data-testid="dot-button" />
                     </button>
                     <Popover
+                      // className={classes.popover}
                       id={popoverSelectedList}
                       anchorEl={anchorEl}
                       open={open}
@@ -93,6 +87,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                         horizontal: "left",
                       }}
                       onClose={handleClose}
+                      PaperProps={{ className: classes.popover }}
                     >
                       <Typography
                         className={classes.typography}
@@ -120,3 +115,16 @@ export function SideNav({ showSideNav, openListModal }: Props) {
     </>
   )
 }
+
+const useStyles = makeStyles((theme: Theme) => ({
+  popover: {
+    boxShadow: "0px 1px 4px rgba(0, 0, 0, 0.1)",
+    width: "232px",
+    height: "96px",
+    background: "#FFFFFF",
+    borderRadius: "8px",
+  },
+  typography: {
+    padding: theme.spacing(1),
+  },
+}))
