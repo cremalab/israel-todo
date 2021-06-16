@@ -5,7 +5,7 @@ import { LandingPage } from "./LandingPage"
 
 describe("LandingPage", () => {
   it(`LandingPage should render `, () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <BrowserRouter>
         <StateProvider>
           <LandingPage />
@@ -14,5 +14,8 @@ describe("LandingPage", () => {
     )
     const getStarted = getByText("Get Started")
     expect(getStarted).toBeInTheDocument()
+
+    const logo = getByTestId("landingLogo")
+    expect(logo).toBeInTheDocument()
   })
 })

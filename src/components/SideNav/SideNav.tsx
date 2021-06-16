@@ -3,8 +3,10 @@ import Typography from "@material-ui/core/Typography"
 import { Theme, makeStyles } from "@material-ui/core/styles"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { useState } from "react"
+import { useAppDispatch } from "../../hooks/useAppDispatch"
 import { useAppSelector } from "../../hooks/useAppSelector"
 import "./styles.scss"
+import { deleteList } from "../../store/list"
 import { List } from "../../types/List"
 import { EditListModal } from "../EditListModal"
 
@@ -14,6 +16,7 @@ interface Props {
 }
 
 export function SideNav({ showSideNav, openListModal }: Props) {
+  const dispatch = useAppDispatch()
   const classes = useStyles()
   const listNames = useAppSelector((state) => state.lists)
   const [showEditListModal, setshowEditListModal] = useState(false)
@@ -38,6 +41,15 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const openEditModal = () => {
     setAnchorEl(null)
     setshowEditListModal(true)
+  }
+  const closeEditModal = () => {
+    setAnchorEl(null)
+    setshowEditListModal(false)
+  }
+
+  const deleteListName = (id: string) => {
+    dispatch(deleteList(id))
+    setCurrentList(listNames.value[0])
   }
   console.log(currentList?.name)
   return (
@@ -73,7 +85,6 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       <MoreVertIcon data-testid="dot-button" />
                     </button>
                     <Popover
-                      // className={classes.popover}
                       id={popoverSelectedList}
                       anchorEl={anchorEl}
                       open={open}
@@ -91,9 +102,22 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                     >
                       <Typography
                         className={classes.typography}
-                        onClick={openEditModal}
+                        onClick={(e) => {
+                          openEditModal()
+                          e.stopPropagation()
+                        }}
                       >
                         Edit List Name
+                      </Typography>
+                      <Typography
+                        className={classes.typography}
+                        onClick={(e) => {
+                          deleteListName(currentList.id)
+                          closeEditModal()
+                          e.stopPropagation()
+                        }}
+                      >
+                        Delete List
                       </Typography>
                     </Popover>
                   </div>
