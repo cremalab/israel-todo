@@ -51,7 +51,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
     dispatch(deleteList(id))
     setCurrentList(listNames.value[0])
   }
-  console.log(currentList?.name)
+
   return (
     <>
       {showSideNav ? (
