@@ -11,7 +11,6 @@ import { TodoForm } from "../TodoForm"
 export interface Props {
   closeModal: () => void
   showEditModal: boolean
-  setEditedText?: ({ id, todo, isCompleted }: Todo) => void
   todo?: Todo
   showModal: boolean
 }
@@ -63,8 +62,8 @@ export function EditTaskModal({ todo, closeModal, showModal }: Props) {
             onSave={handleSaveTodo}
             onCancel={closeModal}
             onDelete={openConfirm}
-            todoText={updatedTodo?.todo}
-          ></TodoForm>
+            text={updatedTodo?.todo}
+          />
         </Card>
       </Modal>
       <Modal open={openConfirmModal}>
