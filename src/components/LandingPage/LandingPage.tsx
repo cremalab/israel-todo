@@ -8,7 +8,7 @@ export function LandingPage() {
     <>
       <div className="wrapper">
         <div className="container">
-          <LandingLogo />
+          <LandingLogo data-testid="landingLogo" />
         </div>
       </div>
       <div className="welcome-section">
