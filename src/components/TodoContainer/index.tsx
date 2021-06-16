@@ -60,76 +60,81 @@ export function TodoContainer() {
 
   return (
     <>
-      <Header toggleSideNav={toggleSideNav} />
-      <SideNav showSideNav={showSideNav} openListModal={openListModal} />
+      <div className="app">
+        <Header toggleSideNav={toggleSideNav} />
+        <SideNav showSideNav={showSideNav} openListModal={openListModal} />
 
-      <div className="wrapper">
-        <div className="todos">
-          {todos.value.length > 0 ? (
-            <h3 className="titles">Active Tasks</h3>
-          ) : (
-            <div className="empty-state-container">
-              <h3 className="initial-state">
-                Create a task with the button below.
-              </h3>
-              <EmptyState />
-            </div>
-          )}
-          <TodoListFilter
-            markAsCompleted={markAsCompleted}
-            editTask={editTask}
-          />
-          {todos.value.length > 0 ? (
-            <button className="new-task-btn" onClick={openModal}>
-              <span id="btn-text">Create New Task</span>
-            </button>
-          ) : (
-            <div className="empty-state-btn-container">
-              <PrimarySmallButton name="Create New Task" onClick={openModal} />
-            </div>
-          )}
-          <NewTaskModal closeModal={closeModal} showModal={showModal} />
-          <EditTaskModal
-            closeModal={closeEditModal}
-            showEditModal={showEditModal}
-            todo={selectedTodo}
-            showModal={showEditModal}
-          />
-          <NewListModal
-            setShowListModal={setShowListModal}
-            showListModal={showListModal}
-          />
-        </div>
-      </div>
-      <div className="wrapper-completed">
-        {todos.value.length > 0 ? (
-          <div id="completed-todos-title">
-            <h3 className="titles">Completed Tasks</h3>
-            {showCompleted ? (
-              <div id="expand-section">
-                <p className="titles">Less</p>
-                <ExpandLessIcon
-                  onClick={toggleCompletedSection}
-                  data-testid="expand-less"
-                />
-              </div>
+        <div className="wrapper">
+          <div className="todos">
+            {todos.value.length > 0 ? (
+              <h3 className="titles">Active Tasks</h3>
             ) : (
-              <div id="expand-section">
-                <p className="titles">Show</p>
-                <ExpandMoreIcon onClick={toggleCompletedSection} />
+              <div className="empty-state-container">
+                <h3 className="initial-state">
+                  Create a task with the button below.
+                </h3>
+                <EmptyState />
               </div>
             )}
-          </div>
-        ) : null}
-        {showCompleted ? (
-          <div className="completed-todos">
             <TodoListFilter
-              isCompleted
               markAsCompleted={markAsCompleted}
               editTask={editTask}
             />
+            {todos.value.length > 0 ? (
+              <button className="new-task-btn" onClick={openModal}>
+                <span id="btn-text">Create New Task</span>
+              </button>
+            ) : (
+              <div className="empty-state-btn-container">
+                <PrimarySmallButton
+                  name="Create New Task"
+                  onClick={openModal}
+                />
+              </div>
+            )}
+            <NewTaskModal closeModal={closeModal} showModal={showModal} />
+            <EditTaskModal
+              closeModal={closeEditModal}
+              showEditModal={showEditModal}
+              todo={selectedTodo}
+              showModal={showEditModal}
+            />
+            <NewListModal
+              setShowListModal={setShowListModal}
+              showListModal={showListModal}
+            />
           </div>
-        ) : null}
+        </div>
+        <div className="wrapper-completed">
+          {todos.value.length > 0 ? (
+            <div id="completed-todos-title">
+              <h3 className="titles">Completed Tasks</h3>
+              {showCompleted ? (
+                <div id="expand-section">
+                  <p className="titles">Less</p>
+                  <ExpandLessIcon
+                    onClick={toggleCompletedSection}
+                    data-testid="expand-less"
+                  />
+                </div>
+              ) : (
+                <div id="expand-section">
+                  <p className="titles">Show</p>
+                  <ExpandMoreIcon onClick={toggleCompletedSection} />
+                </div>
+              )}
+            </div>
+          ) : null}
+          {showCompleted ? (
+            <div className="completed-todos">
+              <TodoListFilter
+                isCompleted
+                markAsCompleted={markAsCompleted}
+                editTask={editTask}
+              />
+            </div>
+          ) : null}
+        </div>
       </div>
     </>
   )
