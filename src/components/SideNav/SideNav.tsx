@@ -24,9 +24,6 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const [popoverSelectedList, setPopoverSelectedList] = useState("")
   const currentList = useAppSelector((state) => state.currentList)
-  // useEffect(() => {
-  //   dispatch(setCurrentList(listNames.value[0]))
-  // }, [dispatch(setCurrentList(listNames.value[0]))])
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)

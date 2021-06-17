@@ -25,7 +25,6 @@ export function TodoContainer() {
   const [showCompleted, setShowCompleted] = useState(true)
   const [showSideNav, setShowSideNav] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
-  // const currentlList = useAppSelector((state) => state.currentList)
 
   const toggleSideNav = () => {
     setShowSideNav(!showSideNav)
