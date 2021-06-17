@@ -8,6 +8,7 @@ describe("todos reducer", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "1123",
     }
     const state = todosReducer(undefined, addTodo(newTodo))
     expect(state.value).toContain(newTodo)
@@ -17,6 +18,7 @@ describe("todos reducer", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "1123",
     }
     store.dispatch(addTodo(newTodo))
     store.dispatch(deleteTodo(newTodo.id))
@@ -29,6 +31,7 @@ describe("todos reducer", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "1123",
     }
     store.dispatch(addTodo(newTodo))
     store.dispatch(toggleTodo(newTodo.id))
@@ -42,10 +45,16 @@ describe("todos reducer", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "1123",
     }
     store.dispatch(addTodo(newTodo))
     store.dispatch(
-      editTodo({ id: "123", isCompleted: false, todo: "Meeting with Justin" }),
+      editTodo({
+        id: "123",
+        isCompleted: false,
+        todo: "Meeting with Justin",
+        listId: "1123",
+      }),
     )
     const state = store.getState().todos
     const value = state.value.find(({ id }) => id === "123")

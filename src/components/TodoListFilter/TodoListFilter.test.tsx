@@ -1,11 +1,18 @@
 import { render } from "@testing-library/react"
 import { store } from "../../store"
+import { setCurrentList } from "../../store/currentList"
 import { addTodo, toggleTodo } from "../../store/todos"
+import { List } from "../../types/List"
 import { Todo } from "../../types/Todo"
 import { StateProvider } from "../StateProvider"
 import { TodoListFilter } from "./TodoListFilter"
 
 describe("TodoListFilter", () => {
+  const newList: List = {
+    id: "1234",
+    name: "Things to do",
+  }
+  store.dispatch(setCurrentList(newList))
   test("isCompleted set to false should show up on document", () => {
     const markAsCompleted = jest.fn()
     const handleEditTask = jest.fn()
@@ -40,6 +47,7 @@ describe("TodoListFilter", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "112",
     }
     store.dispatch(addTodo(newTodo))
     store.dispatch(toggleTodo(newTodo.id))

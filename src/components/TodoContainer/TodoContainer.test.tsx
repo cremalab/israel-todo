@@ -1,11 +1,18 @@
 import { fireEvent, render } from "@testing-library/react"
 import { store } from "../../store"
+import { setCurrentList } from "../../store/currentList"
 import { addTodo } from "../../store/todos"
+import { List } from "../../types/List"
 import { Todo } from "../../types/Todo"
 import { StateProvider } from "../StateProvider"
 import { TodoContainer } from "."
 
 describe("TodoContainer", () => {
+  const newList: List = {
+    id: "1123",
+    name: "Things to do",
+  }
+  store.dispatch(setCurrentList(newList))
   test("renders TodoContainer component", () => {
     const onClick = jest.fn()
     const { getByText } = render(
@@ -23,6 +30,7 @@ describe("TodoContainer", () => {
       id: "123",
       todo: "Add tests",
       isCompleted: false,
+      listId: "1123",
     }
     store.dispatch(addTodo(newTodo))
 

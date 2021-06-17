@@ -76,6 +76,7 @@ export function TodoContainer() {
                 <EmptyState />
               </div>
             )}
+
             <TodoListFilter
               markAsCompleted={markAsCompleted}
               editTask={editTask}

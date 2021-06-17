@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { useAppDispatch } from "../../hooks/useAppDispatch"
+import { useAppSelector } from "../../hooks/useAppSelector"
 import { addTodo } from "../../store/todos"
 import { Todo } from "../../types/Todo"
 import { Card } from "../Card"
@@ -13,10 +14,16 @@ export interface Props {
 }
 
 export function NewTaskModal({ showModal, closeModal }: Props) {
+  const currentList = useAppSelector((state) => state.currentList)
   const dispatch = useAppDispatch()
   const [todo, setTodo] = useState("")
   const handleSaveTodo = () => {
-    const newTodo: Todo = { id: uuidv4(), todo, isCompleted: false }
+    const newTodo: Todo = {
+      id: uuidv4(),
+      todo,
+      isCompleted: false,
+      listId: currentList.value[0].id,
+    }
     if (todo) {
       dispatch(addTodo(newTodo))
       closeModal()

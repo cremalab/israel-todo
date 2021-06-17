@@ -14,17 +14,20 @@ export function TodoListFilter({
   editTask,
 }: Props) {
   const todos = useAppSelector((state) => state.todos)
+  const currentlList = useAppSelector((state) => state.currentList)
 
   const listFilter = (todo: Todo) =>
-    isCompleted ? todo.isCompleted : !todo.isCompleted
+    isCompleted
+      ? todo.isCompleted && todo.listId === currentlList.value[0].id
+      : !todo.isCompleted && todo.listId === currentlList.value[0].id
   return (
     <>
       {todos.value
         .filter((todo) => listFilter(todo))
-        .map(({ todo, id, isCompleted }) => {
+        .map(({ todo, id, isCompleted, listId }) => {
           return (
             <TodoCard
-              edit={() => editTask({ todo, id, isCompleted })}
+              edit={() => editTask({ todo, id, isCompleted, listId })}
               todo={todo}
               key={id}
               handleIconClick={() => {

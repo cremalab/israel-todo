@@ -1,12 +1,18 @@
 import { fireEvent, render } from "@testing-library/react"
 import { store } from "../../store"
+import { setCurrentList } from "../../store/currentList"
+import { List } from "../../types/List"
 import { StateProvider } from "../StateProvider"
 import { NewTaskModal } from "."
 
 describe("New Task Modal", () => {
   test("Clicking save creates new todo", () => {
     const onClick = jest.fn()
-
+    const newList: List = {
+      id: "1234",
+      name: "Things to do",
+    }
+    store.dispatch(setCurrentList(newList))
     const { getByPlaceholderText, getByText } = render(
       <StateProvider>
         <NewTaskModal closeModal={onClick} showModal={true} />,

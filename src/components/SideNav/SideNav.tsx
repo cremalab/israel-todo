@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useAppDispatch } from "../../hooks/useAppDispatch"
 import { useAppSelector } from "../../hooks/useAppSelector"
 import "./styles.scss"
+import { setCurrentList } from "../../store/currentList"
 import { deleteList } from "../../store/list"
 import { List } from "../../types/List"
 import { EditListModal } from "../EditListModal"
@@ -22,7 +23,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
   const [showEditListModal, setshowEditListModal] = useState(false)
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const [popoverSelectedList, setPopoverSelectedList] = useState("")
-  const [currentList, setCurrentList] = useState<List>(listNames.value[0])
+  const currentList = useAppSelector((state) => state.currentList)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -35,7 +36,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
     setPopoverSelectedList(id)
   }
   const setCurrentListInfo = ({ id, name }: List) => {
-    setCurrentList({ id, name })
+    dispatch(setCurrentList({ id, name }))
     setCurrentPopover(id)
   }
   const openEditModal = () => {
@@ -49,7 +50,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
 
   const deleteListName = (id: string) => {
     dispatch(deleteList(id))
-    setCurrentList(listNames.value[0])
+    dispatch(setCurrentList(listNames.value[0]))
   }
 
   return (
@@ -63,7 +64,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                 return (
                   <div
                     className={
-                      taskList.id === currentList?.id
+                      taskList.id === currentList.value[0].id
                         ? "new-list selected-list list-title"
                         : "new-list"
                     }
@@ -76,7 +77,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
 
                     <button
                       className={
-                        taskList.name === currentList?.name
+                        taskList.name === currentList.value[0].name
                           ? "selected-button "
                           : "wrapper-button"
                       }
@@ -112,7 +113,7 @@ export function SideNav({ showSideNav, openListModal }: Props) {
                       <Typography
                         className={classes.typography}
                         onClick={(e) => {
-                          deleteListName(currentList.id)
+                          deleteListName(currentList.value[0].id)
                           closeEditModal()
                           e.stopPropagation()
                         }}
@@ -134,7 +135,6 @@ export function SideNav({ showSideNav, openListModal }: Props) {
       <EditListModal
         showEditListModal={showEditListModal}
         setShowEditListModal={setshowEditListModal}
-        list={currentList}
       />
     </>
   )
