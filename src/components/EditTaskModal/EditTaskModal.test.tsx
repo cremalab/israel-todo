@@ -10,6 +10,7 @@ describe("Form", () => {
     id: "123",
     todo: "Add tests",
     isCompleted: false,
+    listId: "111",
   }
   beforeEach(() => {
     store.dispatch(addTodo(newTodo))
